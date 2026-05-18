@@ -16,20 +16,24 @@ def extract_colors(img):
     return []
 
 def art_note():
-    return "analysis"
-
+    return ""    
 @app.route("/", methods=["GET","POST"])
 def home():
     colors = None
     note = ""
 
     if request.method == "POST":
-        file = request.files["image"]
+        file = request.files.get("image")
+
+        if file is None or file.filename == "":
+            return "No file uploaded", 400
+
         img = Image.open(file)
         colors = extract_colors(img)
         note = art_note()
-
-    return render_template_string(HTML, colors=colors, note=note)
+    return render_template_string(HTML)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
+
+

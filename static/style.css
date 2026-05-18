@@ -1,0 +1,50 @@
+body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #bbbbbb;
+    margin-bottom: 40px;
+}
+
+.upload-box {
+    background: #1c1c1c;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.result-card {
+    background: #1c1c1c;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
