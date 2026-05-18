@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template_string
 from PIL import Image
-
 app = Flask(__name__)
 
 HTML = """
@@ -13,7 +12,19 @@ HTML = """
 """
 
 def extract_colors(img):
-    return []
+    img = img.resize((100, 100))
+    pixels = list(img.getdata())
+
+    r = sum(p[0] for p in pixels) / len(pixels)
+    g = sum(p[1] for p in pixels) / len(pixels)
+    b = sum(p[2] for p in pixels) / len(pixels)
+
+    brightness = (r + g + b) / 3
+
+    return {
+        "avg_rgb": (int(r), int(g), int(b)),
+        "brightness": round(brightness, 2)
+    }
 
 def art_note():
     return ""    
@@ -31,9 +42,10 @@ def home():
         img = Image.open(file)
         colors = extract_colors(img)
         note = art_note()
-    return render_template_string(HTML)
+        return render_template_string(HTML, colors=colors, note=note)
 
 if __name__ == "__main__":
     app.run(debug=True)
 
 
+ 
