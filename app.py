@@ -1,16 +1,38 @@
 from flask import Flask, request, render_template_string
 from PIL import Image
 app = Flask(__name__)
-
 HTML = """
 <h2>ART Dorota Studio Assistant</h2>
 
 <form method="POST" enctype="multipart/form-data">
-  <input type="file" name="image">
-  <button type="submit">Analyze</button>
+    <input type="file" name="image">
+    <button type="submit">Analyze</button>
 </form>
-"""
 
+{% if colors %}
+<h3>Analysis Results</h3>
+
+<p><strong>Average RGB:</strong> {{ colors.avg_rgb }}</p>
+<p><strong>Brightness:</strong> {{ colors.brightness }}</p>
+<p><strong>Debug:</strong> {{ colors }}</p>
+<p><strong>Note:</strong> {{ note }}</p>
+
+{% endif %}
+"""
+<hr>
+
+<h3>Analysis Results</h3>
+
+<p><strong>Average RGB:</strong> {{ colors.avg_rgb }}</p>
+
+<p><strong>Brightness:</strong> {{ colors.brightness }}</p>
+
+<p><strong>Debug:</strong> {{ colors }}</p>
+
+<p><strong>Note:</strong> {{ note }}</p>
+
+{% endif %}
+"""
 def extract_colors(img):
     img = img.resize((100, 100))
     pixels = list(img.getdata())
@@ -41,9 +63,9 @@ def home():
 
         img = Image.open(file)
         colors = extract_colors(img)
-        note = art_note()
+        note = art_note() 
         return render_template_string(HTML, colors=colors, note=note)
-
+    return render_template_string(HTML, colors=colors, note=note)
 if __name__ == "__main__":
     app.run(debug=True)
 
