@@ -1,73 +1,97 @@
 from flask import Flask, request, render_template_string
 from PIL import Image
+import io
+
 app = Flask(__name__)
+
 HTML = """
-<h2>ART Dorota Studio Assistant</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Generator</title>
+</head>
+<body>
+    <h1>Upload an image to extract colors</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if colors %}
+    <h2>Detected Colors:</h2>
 
-<form method="POST" enctype="multipart/form-data">
-    <input type="file" name="image">
-    <button type="submit">Analyze</button>
-</form>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        {% for c in colors %}
+            <div style="
+                width:60px;
+                height:60px;
+                background-color:{{ c }};
+                border-radius:8px;
+                border:1px solid #333;
+                box-shadow:0 2px 6px rgba(0,0,0,0.2);
+            "></div>
+        {% endfor %}
+    </div>
 
-{% if colors %}
-<h3>Analysis Results</h3>
-
-<p><strong>Average RGB:</strong> {{ colors.avg_rgb }}</p>
-<p><strong>Brightness:</strong> {{ colors.brightness }}</p>
-<p><strong>Debug:</strong> {{ colors }}</p>
-<p><strong>Note:</strong> {{ note }}</p>
-
-{% endif %}
+    <p style="margin-top:10px;">{{ colors }}</p>
+{% endif %}    
+    {% if note %}
+        <h3>Note:</h3>
+        <p>{{ note }}</p>
+    {% endif %}
+</body>
+</html>
 """
-<hr>
 
-<h3>Analysis Results</h3>
-
-<p><strong>Average RGB:</strong> {{ colors.avg_rgb }}</p>
-
-<p><strong>Brightness:</strong> {{ colors.brightness }}</p>
-
-<p><strong>Debug:</strong> {{ colors }}</p>
-
-<p><strong>Note:</strong> {{ note }}</p>
-
-{% endif %}
-"""
 def extract_colors(img):
+    img = img.convert("RGB")
     img = img.resize((100, 100))
+
     pixels = list(img.getdata())
 
-    r = sum(p[0] for p in pixels) / len(pixels)
-    g = sum(p[1] for p in pixels) / len(pixels)
-    b = sum(p[2] for p in pixels) / len(pixels)
+    color_count = {}
 
-    brightness = (r + g + b) / 3
+    for pixel in pixels:
+        if pixel in color_count:
+            color_count[pixel] += 1
+        else:
+            color_count[pixel] = 1
 
-    return {
-        "avg_rgb": (int(r), int(g), int(b)),
-        "brightness": round(brightness, 2)
-    }
+    sorted_colors = sorted(
+        color_count.items(),
+        key=lambda x: x[1],
+        reverse=True
+    )
+
+    top_colors = []
+
+    for color, count in sorted_colors[:5]:
+        hex_color = '#%02x%02x%02x' % color
+        top_colors.append(hex_color)
+
+    return top_colors
 
 def art_note():
-    return ""    
-@app.route("/", methods=["GET","POST"])
+    return "This is an automatic art note."    
+@app.route("/", methods=["GET", "POST"])
 def home():
     colors = None
-    note = ""
-
+    note = art_note()
+    
     if request.method == "POST":
+        print("FILES:", request.files)
+        print("FORM:", request.form)
         file = request.files.get("image")
-
+        
         if file is None or file.filename == "":
             return "No file uploaded", 400
 
         img = Image.open(file)
         colors = extract_colors(img)
-        note = art_note() 
-        return render_template_string(HTML, colors=colors, note=note)
+
     return render_template_string(HTML, colors=colors, note=note)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) 
 
 
- 
