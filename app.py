@@ -35,7 +35,7 @@ HTML = """
         {% endfor %}
     </div>
 
-    <p style="margin-top:10px;">{{ colors }}</p>
+
 {% endif %}    
     {% if note %}
         <h3>Note:</h3>
