@@ -111,7 +111,37 @@ def warmup():
     </script>
     """
 
-    
+@app.route("/sketch", methods=["GET"])
+def sketch():
+    return """
+    <h1>Art Mentor — Module 2: Sketch Engine</h1>
+
+    <h2>Select Level</h2>
+    <input type="radio" name="level"> Beginner<br>
+    <input type="radio" name="level"> Intermediate<br>
+    <input type="radio" name="level"> Experienced<br>
+
+    <h2>What would you like to draw?</h2>
+    <input type="text" style="width:300px;">
+
+    <br><br>
+
+    <button>Generate Mentor Sketch</button>
+
+    <hr>
+
+    <h2>Upload Sketch</h2>
+    <input type="file">
+
+    <hr>
+
+    <h2>Mentor Feedback</h2>
+    <p>Feedback will appear here.</p>
+
+    <hr>
+
+    <button>Save to Studio Shelf</button>
+    """    
 @app.route("/", methods=["GET", "POST"])
 def home():
     colors = None
