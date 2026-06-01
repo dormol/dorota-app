@@ -47,7 +47,7 @@ HTML = """
 
 def extract_colors(img):
     img = img.convert("RGB")
-    img = img.resize((100, 100))
+    img = img.resize((150, 150))
 
     pixels = list(img.getdata())
 
@@ -74,7 +74,44 @@ def extract_colors(img):
     return top_colors
 
 def art_note():
-    return "This is an automatic art note."    
+    return "This is an automatic art note."
+@app.route("/warmup", methods=["GET"])
+def warmup():
+    return """
+    <h1>Art Mentor — Module 1: Warm-Up Engine</h1>
+
+    <p>15-minute focus session</p>
+
+    <button onclick="startWarmup()">Start Warm-Up</button>
+
+    <h2 id="timer">15:00</h2>
+
+    <script>
+        let duration = 15 * 60;
+        let interval;
+
+        function startWarmup() {
+            if (interval) return;
+
+            interval = setInterval(() => {
+                let minutes = Math.floor(duration / 60);
+                let seconds = duration % 60;
+
+                document.getElementById("timer").innerText =
+                    String(minutes).padStart(2,'0') + ":" + String(seconds).padStart(2,'0');
+
+                duration--;
+
+                if (duration < 0) {
+                    clearInterval(interval);
+                    document.getElementById("timer").innerText = "DONE";
+                }
+            }, 1000);
+        }
+    </script>
+    """
+
+    
 @app.route("/", methods=["GET", "POST"])
 def home():
     colors = None
@@ -95,6 +132,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True) 
+
 
 
 
