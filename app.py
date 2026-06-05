@@ -15,12 +15,11 @@ HTML = """
 <body>
     <h1>Upload an image to extract colors</h1>
     <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" required>
-        <button type="submit">Submit</button>
+  
     </form>
     
     {% if colors %}
-    <h2>Detected Colors:</h2>
+  
 
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
         {% for c in colors %}
@@ -72,7 +71,43 @@ def extract_colors(img):
         top_colors.append(hex_color)
 
     return top_colors
+MENTOR_RULES = {
+    "horse": {
+        "beginner": {
+            "proportions": "Head to body approximately 1:3",
+            "steps": [
+                "Draw the action line",
+                "Add ribcage and pelvis",
+                "Connect body masses",
+                "Add legs as simple cylinders"
+            ]
+        }
+    },
 
+    "face": {
+        "beginner": {
+            "proportions": "Eyes placed at the middle of the head",
+            "steps": [
+                "Draw an oval",
+                "Add center line",
+                "Place eye line",
+                "Add nose and mouth"
+            ]
+        }
+    },
+
+    "figure": {
+        "beginner": {
+            "proportions": "Body approximately 7 heads tall",
+            "steps": [
+                "Draw vertical axis",
+                "Add head unit",
+                "Place ribcage and pelvis",
+                "Add arms and legs"
+            ]
+        }
+    }
+}
 def art_note():
     return "This is an automatic art note."
 @app.route("/warmup", methods=["GET"])
@@ -117,7 +152,7 @@ def sketch():
     <h1>Art Mentor — Module 2: Sketch Engine</h1>
 
     <h2>Select Level</h2>
-    <input type="radio" name="level"> Beginner<br>
+   
     <input type="radio" name="level"> Intermediate<br>
     <input type="radio" name="level"> Experienced<br>
 
@@ -146,7 +181,11 @@ def sketch():
 def home():
     colors = None
     note = art_note()
-    
+
+    return """
+    <h1>Art Mentor</h1>
+    <p>Welcome to your sketch engine</p>
+    """
     if request.method == "POST":
         print("FILES:", request.files)
         print("FORM:", request.form)
@@ -162,6 +201,11 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True) 
+
+
+
+
+
 
 
 
