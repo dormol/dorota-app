@@ -44,6 +44,7 @@ HTML = """
 </html>
 """
 
+
 def extract_colors(img):
     img = img.convert("RGB")
     img = img.resize((150, 150))
@@ -182,10 +183,7 @@ def home():
     colors = None
     note = art_note()
 
-    return """
-    <h1>Art Mentor</h1>
-    <p>Welcome to your sketch engine</p>
-    """
+    
     if request.method == "POST":
         print("FILES:", request.files)
         print("FORM:", request.form)
@@ -201,6 +199,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True) 
+
 
 
 
