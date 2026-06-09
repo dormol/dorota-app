@@ -147,8 +147,14 @@ def warmup():
     </script>
     """
 
-@app.route("/sketch", methods=["GET"])
+@app.route("/sketch", methods=["GET", "POST"])
 def sketch():
+
+    if request.method == "POST":
+        level = request.form.get("level")
+        prompt = request.form.get("prompt")
+        print("LEVEL:", level)
+        print("PROMPT:", prompt)
     return """
     <h1>Art Mentor — Module 2: Sketch Engine</h1>
 
@@ -179,36 +185,7 @@ def sketch():
     <h2>Mentor Feedback</h2>
     <p>Feedback will appear here.</p>
     """
-def sketch():
-    return """
-    <h1>Art Mentor — Module 2: Sketch Engine</h1>
-
-    <h2>Select Level</h2>
-   
-    <input type="radio" name="level"> Intermediate<br>
-    <input type="radio" name="level"> Experienced<br>
-
-    <h2>What would you like to draw?</h2>
-    <input type="text" style="width:300px;">
-
-    <br><br>
-
-    <button>Generate Mentor Sketch</button>
-
-    <hr>
-
-    <h2>Upload Sketch</h2>
-    <input type="file">
-
-    <hr>
-
-    <h2>Mentor Feedback</h2>
-    <p>Feedback will appear here.</p>
-
-    <hr>
-
-    <button>Save to Studio Shelf</button>
-    """    
+    
 @app.route("/", methods=["GET", "POST"])
 def home():
     colors = None
@@ -260,10 +237,6 @@ def app_controller():
         return render_template_string("<h1>Module 6 - Painting Session</h1>")
 if __name__ == "__main__":
     app.run(debug=True) 
-
-
-
-
 
 
 
