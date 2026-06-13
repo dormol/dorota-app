@@ -67,7 +67,7 @@ def extract_colors(img):
 
     top_colors = []
 
-    for color, count in sorted_colors[:5]:
+    for color, count in sorted_colors[:12]:
         hex_color = '#%02x%02x%02x' % color
         top_colors.append(hex_color)
 
@@ -151,10 +151,19 @@ def warmup():
 def sketch():
 
     if request.method == "POST":
-        level = request.form.get("level")
-        prompt = request.form.get("prompt")
-        print("LEVEL:", level)
-        print("PROMPT:", prompt)
+        level = request.form.get("level", "Beginner").lower()
+    prompt = request.form.get("prompt", "").lower()
+
+    feedback = None
+
+    if "face" in prompt:
+        feedback = MENTOR_RULES["face"].get(level)
+
+    elif "horse" in prompt:
+        feedback = MENTOR_RULES["horse"].get(level)
+
+    elif "figure" in prompt:
+        feedback = MENTOR_RULES["figure"].get(level)
     return """
     <h1>Art Mentor — Module 2: Sketch Engine</h1>
 
@@ -184,6 +193,14 @@ def sketch():
 
     <h2>Mentor Feedback</h2>
     <p>Feedback will appear here.</p>
+    
+   <hr>
+
+<h2>Artist Daily Workbook</h2>
+
+<button>Save Exercise</button>
+
+<p>Your exercises can be stored here for later review.</p> 
     """
     
 @app.route("/", methods=["GET", "POST"])
@@ -221,22 +238,33 @@ def app_controller():
     if module == 1:
         return warmup()
 
-    if module == 2:
+    elif module == 2:
         return sketch()
 
-    if module == 3:
+    elif module == 3:
         return render_template_string("<h1>Module 3 - Composition</h1>")
 
-    if module == 4:
+    elif module == 4:
         return render_template_string("<h1>Module 4 - Color Studio</h1>")
 
-    if module == 5:
+    elif module == 5:
         return render_template_string("<h1>Module 5 - Medium Studio</h1>")
 
-    if module == 6:
+    elif module == 6:
         return render_template_string("<h1>Module 6 - Painting Session</h1>")
+
+    elif module == 7:
+        return render_template_string("<h1>Module 7 - Mentor Review</h1>")
+
+    else:
+        session["module"] = 1
+        return warmup()
+
+
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True)
+
+    
 
 
 
