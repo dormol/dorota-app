@@ -15,7 +15,8 @@ HTML = """
 <body>
     <h1>Upload an image to extract colors</h1>
     <form method="POST" enctype="multipart/form-data">
-  
+    <input type="file" name="image">
+    <input type="submit" value="Upload Image">
     </form>
     
     {% if colors %}
@@ -150,20 +151,26 @@ def warmup():
 @app.route("/sketch", methods=["GET", "POST"])
 def sketch():
 
-    if request.method == "POST":
-        level = request.form.get("level", "Beginner").lower()
-    prompt = request.form.get("prompt", "").lower()
-
     feedback = None
+    prompt = ""
+    level = "beginner"
 
-    if "face" in prompt:
-        feedback = MENTOR_RULES["face"].get(level)
+    if request.method == "POST":
 
-    elif "horse" in prompt:
-        feedback = MENTOR_RULES["horse"].get(level)
+        level = request.form.get("level", "Beginner").lower()
+        prompt = request.form.get("prompt", "").lower()
 
-    elif "figure" in prompt:
-        feedback = MENTOR_RULES["figure"].get(level)
+        if "face" in prompt:
+            feedback = MENTOR_RULES["face"].get(level)
+
+        elif "horse" in prompt:
+            feedback = MENTOR_RULES["horse"].get(level)
+
+        elif "figure" in prompt:
+            feedback = MENTOR_RULES["figure"].get(level)
+
+        elif "flower" in prompt:
+            feedback = MENTOR_RULES["flower"].get(level)
     return """
     <h1>Art Mentor — Module 2: Sketch Engine</h1>
 
@@ -265,6 +272,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
     
+
 
 
 
