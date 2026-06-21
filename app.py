@@ -74,7 +74,6 @@ def extract_colors(img):
 
     return top_colors
 MENTOR_RULES = {
-
     "horse": {
         "beginner": {
             "proportions": "Head to body approximately 1:3",
@@ -109,54 +108,9 @@ MENTOR_RULES = {
                 "Add arms and legs"
             ]
         }
-    },
-
-    "flower": {
-        "beginner": {
-            "proportions": "Flowers structured around radial symmetry",
-            "steps": [
-                "Draw central stem line",
-                "Block basic flower shape",
-                "Divide into petals",
-                "Refine overlaps",
-                "Add leaves"
-            ]
-        }
-    },
-
-    "object": {
-        "beginner": {
-            "proportions": "Simple geometric construction: box/cylinder-based structure",
-            "steps": [
-                "Block basic form",
-                "Construct perspective box",
-                "Define proportions",
-                "Refine silhouette"
-            ]
-        },
-        "intermediate": {
-            "proportions": "Add spatial depth and structural accuracy",
-            "steps": [
-                "Establish perspective lines",
-                "Build 3D form",
-                "Refine overlaps"
-            ]
-        },
-        "advanced": {
-            "proportions": "Full structural and perspective control",
-            "steps": [
-                "Analyze real object proportions",
-                "Apply multi-point perspective",
-                "Refine material and edge control"
-            ]
-        }
     }
-
 }
-    
-
 def art_note():
-
     return "This is an automatic art note."
 @app.route("/warmup", methods=["GET"])
 def warmup():
@@ -206,55 +160,19 @@ def sketch():
         level = request.form.get("level", "Beginner").lower()
         prompt = request.form.get("prompt", "").lower()
 
-        category = None
-
-        if any(x in prompt for x in ["face", "portrait"]):
-            category = "face"
+        if "face" in prompt:
+            feedback = MENTOR_RULES["face"].get(level)
 
         elif "horse" in prompt:
-            category = "horse"
+            feedback = MENTOR_RULES["horse"].get(level)
 
-        elif any(x in prompt for x in ["figure", "anatomy", "gesture"]):
-            category = "figure"
+        elif "figure" in prompt:
+            feedback = MENTOR_RULES["figure"].get(level)
 
-        elif any(x in prompt for x in ["flower", "rose", "tulip"]):
-            category = "flower"
-
-        elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object"]):
-            category = "object"
-
-        elif any(x in prompt for x in ["landscape", "tree", "mountain"]):
-            category = "landscape"
-
-        if category:
-            feedback = MENTOR_RULES[category].get(
-                level,
-                MENTOR_RULES[category]["beginner"]
-            )
-
-    feedback_html = ""
-
-    if feedback:
-        feedback_html += "<h3>Proportions</h3>"
-        feedback_html += f"<p>{feedback['proportions']}</p>"
-
-        feedback_html += "<h3>Construction Steps</h3><ol>"
-
-        for step in feedback["steps"]:
-            feedback_html += f"<li>{step}</li>"
-
-        feedback_html += "</ol>"
-
-    else:
-        feedback_html = """
-        <p>
-        Enter a classical drawing subject such as:
-        face, figure, flower, horse, object, or landscape.
-        </p>
-        """
-
-    return f"""
-    <h1>Art Mentor — Sketch Engine v2</h1>
+        elif "flower" in prompt:
+            feedback = MENTOR_RULES["flower"].get(level)
+    return """
+    <h1>Art Mentor — Module 2: Sketch Engine</h1>
 
     <form method="POST">
 
@@ -265,23 +183,32 @@ def sketch():
         <input type="radio" name="level" value="Advanced"> Advanced<br>
 
         <h2>What would you like to draw?</h2>
-
-        <input type="text" name="prompt" style="width:320px;">
+        <input type="text" name="prompt" style="width:300px;">
 
         <br><br>
 
-        <button type="submit">Generate Mentor Guidance</button>
+        <button type="submit">Generate Mentor Sketch</button>
 
     </form>
 
     <hr>
 
-    <h2>Mentor Guidance</h2>
+    <h2>Upload Sketch</h2>
+    <input type="file">
 
-    {feedback_html}
+    <hr>
+
+    <h2>Mentor Feedback</h2>
+    <p>Feedback will appear here.</p>
+    
+   <hr>
+
+<h2>Artist Daily Workbook</h2>
+
+<button>Save Exercise</button>
+
+<p>Your exercises can be stored here for later review.</p> 
     """
-
-        
     
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -345,14 +272,6 @@ if __name__ == "__main__":
     app.run(debug=True)
 
     
-
-
-
-
-
-
-
-
 
 
 
