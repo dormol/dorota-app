@@ -2,9 +2,15 @@
 
 from flask import Flask, request, render_template_string, session
 from PIL import Image
+
+from core.session_manager import init_session, set_module, get_state
 import io
 
 app = Flask(__name__)
+
+@app.before_request
+def start_session():
+    init_session()
 app.secret_key = "art-mentor-dev-key"
 HTML = """
 <!DOCTYPE html>
@@ -268,13 +274,41 @@ def app_controller():
         return warmup()
 
 
+
+
+    
+@app.route("/app/module/<name>")
+def module_router(name):
+
+    set_module(name)
+
+    state = get_state()
+
+    return f"""
+    <h1>Art Mentor Studio</h1>
+
+    <h2>Module: {name}</h2>
+
+    <p>User Level: {state.get('user_level')}</p>
+
+    <p>Progress:</p>
+
+    <pre>{state.get('progress')}</pre>
+
+    <hr>
+
+    <a href="/app/module/warmup">Warm-Up</a><br>
+
+    <a href="/app/module/sketch">Sketch Engine</a><br>
+
+    <a href="/app/module/color">Color Studio</a><br>
+
+    <a href="/app/module/review">Mentor Review</a><br>
+    """
 if __name__ == "__main__":
     app.run(debug=True)
 
     
-
-
-
 
 
 
