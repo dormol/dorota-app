@@ -1,8 +1,9 @@
 # ART MENTOR STUDIO
+## by Dorota Mol @Molgallery
 
-## DESIGN BIBLE
+# DESIGN BIBLE
 
-Version 1.0
+Version 1.1
 
 Author:
 Dorota Mol @Molgallery
