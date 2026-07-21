@@ -147,10 +147,9 @@ Studio Shelf
 Gallery
 7. Long-Term Vision
 
-Art Mentor Studio is more than software.
+Art Mentor Studio is an art studio where artists learn, practice, develop their artistic voice, and preserve their creative journey.
 
-
-It can become a global creative environment connecting:
+Art Mentor Studio is a global creative environment connecting:
 
 artists,
 students,
@@ -158,7 +157,9 @@ mentors,
 collectors,
 art lovers.
 
-The digital studio can become the foundation for future physical studios, exhibitions, and artistic communities.
+Art Mentor Studio is the foundation for future physical studios, exhibitions, and artistic communities.
+
+
 8. Guiding Principle
 
 Technology serves art.
