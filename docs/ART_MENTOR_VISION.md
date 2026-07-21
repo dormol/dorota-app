@@ -1,6 +1,16 @@
-Art Mentor Studio
-Vision Document
-1. Project Identity
+# ART MENTOR STUDIO
+## by Dorota Mol @Molgallery
+
+# VISION DOCUMENT
+
+Version 1.0
+
+Author:
+Dorota Mol @Molgallery
+
+---
+
+# 1. Project Identity
 
 Art Mentor Studio by Dorota Mol @Molgallery
 
@@ -67,7 +77,7 @@ timeless architecture,
 historical artistic tradition,
 modern creative technology,
 warmth,
-inspiration,
+mdinspiration,
 calm.
 
 The feeling:
@@ -137,7 +147,8 @@ Studio Shelf
 Gallery
 7. Long-Term Vision
 
-Art Mentor Studio can become more than software.
+Art Mentor Studio is more than software.
+
 
 It can become a global creative environment connecting:
 
@@ -155,3 +166,5 @@ Technology serves art.
 The purpose is not to replace creativity.
 
 The purpose is to help people discover, develop, and share their artistic voice.
+
+
