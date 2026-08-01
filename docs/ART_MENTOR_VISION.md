@@ -1,4 +1,4 @@
-# ART MENTOR STUDIO
+w# ART MENTOR STUDIO
 ## by Dorota Mol @Molgallery
 
 # VISION DOCUMENT
@@ -14,10 +14,10 @@ Dorota Mol @Molgallery
 
 Art Mentor Studio by Dorota Mol @Molgallery
 
-Art Mentor Studio is a digital creative environment designed for artists at different stages of their artistic journey.
+Art Mentor Studio is an art studio created for artists at different stages of their artistic journey.
 
-It is not only an application.
-It is a virtual art studio where people learn, practice, develop their artistic voice, and preserve their creative journey.
+It is more than an application.
+It is a creative environment where artists learn, practice, develop their artistic voice, and preserve their creative journey.
 
 The goal is to combine:
 
@@ -41,9 +41,9 @@ The focus is not only on technique.
 
 The focus is:
 "Discover and develop your artistic voice."
-3. The Digital Art World
+3. The Art Studio Campus
 
-Art Mentor Studio is imagined as a digital version of a real artistic campus.
+Art Mentor Studio is imagined as a complete artistic campus where artists learn, practice, and develop their creative journey.
 
 The user does not simply open screens.
 
@@ -77,7 +77,7 @@ timeless architecture,
 historical artistic tradition,
 modern creative technology,
 warmth,
-mdinspiration,
+inspiration,
 calm.
 
 The feeling:
@@ -96,14 +96,14 @@ artist workshops.
 
 Present:
 
-digital tools,
+creative tools,
 interactive learning,
 personal creative tracking.
 
 Future:
 intelligent mentorship,
 global artistic community,
-digital gallery.
+global gallery.
 
 The style is:
 
@@ -167,5 +167,4 @@ Technology serves art.
 The purpose is not to replace creativity.
 
 The purpose is to help people discover, develop, and share their artistic voice.
-
 
