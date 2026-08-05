@@ -52,3 +52,24 @@ The location of the Campus reflects a personal vision of combining exploration, 
 The Campus exists within a carefully designed protected environment that provides Earth-like living conditions. This allows artists to live, create, and experience spaces inspired by nature while being part of a new world beyond Earth.
 
 The relationship between the Mars landscape and the artistic spaces of the Campus creates a unique atmosphere — a place where the vastness of space meets human creativity, and where artists can fully dedicate themselves to the development of their artistic voice.
+
+# CHAPTER 3
+
+
+## THE MASTER PLAN OF THE CAMPUS
+
+Art Mentor Studio Campus has been designed as a complete artistic environment where every space serves a distinct purpose while remaining connected to the whole.
+
+The Campus is organized around a clear and intuitive layout that allows artists to move naturally between learning, practice, reflection, collaboration, and exhibition. Every destination contributes to a continuous artistic journey rather than functioning as an isolated building.
+
+At the heart of the Campus lies the Central Plaza, a welcoming gathering place from which all major pathways begin. From this central point, artists can easily reach every part of the Campus while experiencing a harmonious balance between architecture, gardens, water, and open space.
+
+The Campus is divided into carefully planned districts, each dedicated to a different aspect of artistic life. Together, these districts create one interconnected environment where creativity is supported at every stage of artistic development.
+
+The layout encourages discovery. Walking through the Campus becomes part of the artistic experience itself. Every pathway reveals new perspectives, every garden offers moments of reflection, and every building contributes to the overall identity of Art Mentor Studio.
+
+he Master Plan has been designed to grow over time without losing its architectural harmony. New studios, galleries, educational spaces, and artistic facilities may be introduced in the future while remaining faithful to the original vision of the Campus.
+
+Nothing has been placed by accident. Every building, every garden, every pathway, and every open space exists for a reason and contributes to the artistic journey of every artist.
+
+The Master Plan serves as the foundation for every future illustration, architectural visualization, map, and development of Art Mentor Studio Campus.
