@@ -1,6 +1,18 @@
 # ART MENTOR STUDIO
 ## by Dorota Mol @Molgallery
 
+## PROJECT OWNERSHIP AND RIGHTS
+
+Art Mentor Studio by Dorota Mol @Molgallery is an independent artistic and creative project created and developed by Dorota Mol.
+
+All concepts, creative direction, artistic philosophy, project structure, documentation, designs, names, and developments contained within this project are part of the author's vision and remain under the ownership and control of Dorota Mol.
+
+The project may be expanded, developed, revised, modified, or otherwise changed at any stage according to the decisions of the author and creator.
+
+The ability to make changes and modifications to the project, including its concept, documentation, structure, design, functionality, and future development, remains exclusively with Dorota Mol, author and creator of Art Mentor Studio by Dorota Mol @Molgallery.
+
+All rights reserved.
+
 # DESIGN BIBLE
 
 Version 1.1
@@ -125,3 +137,113 @@ The Campus is designed as a place where artists can return throughout their crea
 The philosophy of Art Mentor Studio Campus is based on respect for individuality, dedication to artistic growth, and the belief that creativity is one of the most meaningful expressions of human potential.
 
 The ultimate purpose of artistic development is not only to create better works of art, but to help every artist discover, develop, and share their authentic artistic voice.
+
+# CHAPTER 6
+
+## THE CREATIVE ENVIRONMENTS OF ART MENTOR STUDIO CAMPUS
+
+# ART MENTOR STUDIO
+## by Dorota Mol @Molgallery
+
+## PROJECT OWNERSHIP AND RIGHTS
+
+Art Mentor Studio by Dorota Mol @Molgallery is an independent artistic and creative project created and developed by Dorota Mol.
+
+All concepts, creative direction, artistic philosophy, project structure, documentation, designs, names, and developments contained within this project are part of the>
+
+The project may be expanded, developed, revised, modified, or otherwise changed at any stage according to the decisions of the author and creator.
+
+The ability to make changes and modifications to the project, including its concept, documentation, structure, design, functionality, and future development, remains e>
+
+All rights reserved.
+
+# DESIGN BIBLEArt Mentor Studio Campus is designed as a carefully considered collection of environments, each supporting a different stage of the artist's creative development.
+
+Each environment has its own purpose, character, and atmosphere, while contributing to the larger artistic journey.
+
+Together, they form a coherent artistic environment where artists can learn, practice, experiment, reflect, and continuously develop their own authentic artistic voice.
+
+## Welcome Hall — The Beginning of the Artistic Journey
+
+The Welcome Hall is the first connection between the artist and Art Mentor Studio Campus.
+
+It introduces the philosophy of the Campus and establishes an atmosphere of inspiration, curiosity, and possibility.
+
+The Welcome Hall represents the moment when an artist begins a new creative journey — a place where ideas are welcomed, personal goals are recognized, and the individual path of development begins.
+
+## Sketch Atelier — The Foundation of Observation and Expression
+
+The Sketch Atelier provides an environment for focused observation, exploration, and daily artistic practice, allowing artists to strengthen their skills through consistent work.
+
+Through sketching, artists learn to see, analyze, and understand form, proportion, movement, and composition.
+
+Every drawing becomes an opportunity to observe more carefully, develop greater understanding, and strengthen the artist's ability to translate what they see into their own visual language.
+
+Throughout the Campus, the Art Mentor is close by to provide guidance, answer questions, encourage reflection, and help artists explore new possibilities while respecting their individual creative direction.
+
+## Color Atelier — The Exploration of Color and Emotion
+
+The Color Atelier is devoted to discovering the relationship between color, harmony, atmosphere, and emotional expression.
+
+Artists explore color theory, relationships between hues, harmonies, contrasts, values, and the expressive possibilities of color.
+
+The purpose of the Color Atelier is not simply to understand color, but to help artists develop a deeper awareness of how color can influence mood, atmosphere, meaning, and personal artistic expression.
+
+Throughout this exploration, the Art Mentor is available to answer questions, offer observations, and help artists discover possibilities within their own approach to color.
+
+## Painting Atelier — The Atelier of Creation
+
+The Painting Atelier is where knowledge, observation, imagination, and personal expression come together.
+
+Here, artists transform ideas into meaningful works of art while continuing to develop their techniques, artistic decisions, and creative confidence.
+
+The Painting Atelier respects every stage of the creative process — from the first inspiration and exploration to the development and completion of the artwork.
+
+The Art Mentor remains close throughout this process, available to answer questions, offer guidance, and encourage thoughtful artistic decisions while leaving the creative direction in the hands of the artist.
+
+## Mentor Atelier — Dialogue, Reflection, and Discovery
+
+The Mentor Atelier is a place for meaningful dialogue, thoughtful reflection, and deeper exploration of the artist's creative direction.
+
+Here, artists can ask questions, discuss their work, examine their choices, and consider new perspectives with the guidance of the Art Mentor.
+
+The Mentor Atelier provides an opportunity to step back from the process of creation, reflect upon the work with greater clarity, and explore possibilities that may not have been considered before.
+
+The relationship between the artist and the Art Mentor is built on respect, trust, thoughtful exchange, and the belief that every artist has the ability to develop an authentic artistic voice.
+
+## Art Library — Knowledge and Inspiration
+
+The Art Library is a destination for learning, research, and artistic discovery.
+
+It connects artists with knowledge, art history, techniques, and sources of inspiration from different periods and cultures.
+
+The Art Library supports lifelong learning and encourages artists to remain curious, to look beyond their immediate practice, and to discover connections between artistic traditions, ideas, materials, and forms of expression.
+
+## Studio Shelf — Personal Artistic Archive
+
+The Studio Shelf is a personal archive where artists preserve their creative journey and artistic work.
+
+It allows artists to collect studies, exercises, sketches, discoveries, and important moments of development.
+
+The Studio Shelf becomes a reflection of progress — a place where artists should return throughout their creative journey to recognize their growth, revisit their discoveries, and understand the evolution of their own artistic voice.
+
+It creates a personal record of practice and development that can become increasingly meaningful as the artist's body of work grows.
+
+## Gallery — Sharing Artistic Expression
+
+The Gallery represents the connection between artistic creation and the wider world.
+
+It provides a setting where finished artworks can be presented, appreciated, and shared.
+
+The Gallery celebrates artistic individuality and recognizes that every artist's work carries a personal history, intention, and perspective.
+
+It is also a place where artists can experience the transition from private creation to public expression and discover the meaning of presenting their work to others.
+
+The creative environments of Art Mentor Studio Campus form a unified artistic experience.
+
+Each has its own identity and purpose, yet none exists in isolation. The artist moves naturally between observation, practice, exploration, reflection, creation, learning, and presentation.
+
+Together, these environments create a continuous artistic journey in which knowledge becomes practice, practice becomes experience, and experience gradually becomes an increasingly confident and authentic artistic voice.
+
+The Campus is therefore not simply a collection of places. It is an environment designed to accompany the artist through the many stages of creative development, while preserving the freedom, individuality, and personal direction that make every artistic journey unique.
+
