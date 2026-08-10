@@ -10,6 +10,7 @@ All concepts, creative direction, artistic philosophy, project structure, docume
 The project may be expanded, developed, revised, modified, or otherwise changed at any stage according to the decisions of the author and creator.
 
 The ability to make changes and modifications to the project, including its concept, documentation, structure, design, functionality, and future development, remains exclusively with Dorota Mol, author and creator of Art Mentor Studio by Dorota Mol @Molgallery.
+Dorota Mol may also adapt the application into a playable game and develop derivative or interactive forms of the project, including its characters, environments, artwork, narrative, creative concepts, and other future media, while retaining full ownership and creative control over such adaptations and developments.
 
 All rights reserved.
 
@@ -142,22 +143,8 @@ The ultimate purpose of artistic development is not only to create better works 
 
 ## THE CREATIVE ENVIRONMENTS OF ART MENTOR STUDIO CAMPUS
 
-# ART MENTOR STUDIO
-## by Dorota Mol @Molgallery
 
-## PROJECT OWNERSHIP AND RIGHTS
-
-Art Mentor Studio by Dorota Mol @Molgallery is an independent artistic and creative project created and developed by Dorota Mol.
-
-All concepts, creative direction, artistic philosophy, project structure, documentation, designs, names, and developments contained within this project are part of the>
-
-The project may be expanded, developed, revised, modified, or otherwise changed at any stage according to the decisions of the author and creator.
-
-The ability to make changes and modifications to the project, including its concept, documentation, structure, design, functionality, and future development, remains e>
-
-All rights reserved.
-
-# DESIGN BIBLEArt Mentor Studio Campus is designed as a carefully considered collection of environments, each supporting a different stage of the artist's creative development.
+Art Mentor Studio Campus is designed as a carefully considered collection of environments, each supporting a different stage of the artist's creative development.
 
 Each environment has its own purpose, character, and atmosphere, while contributing to the larger artistic journey.
 
