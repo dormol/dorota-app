@@ -166,6 +166,14 @@ Through sketching, artists learn to see, analyze, and understand form, proportio
 
 Every drawing becomes an opportunity to observe more carefully, develop greater understanding, and strengthen the artist's ability to translate what they see into their own visual language.
 
+## Artist Daily Workbook — The Record of Daily Artistic Practice
+
+The Artist Daily Workbook is an integral part of the Sketch Atelier, providing artists with a personal place to record daily exercises, sketches, observations, discoveries, and reflections.
+
+It allows artists to return to previous exercises, review their development, recognize patterns in their practice, and continue building their artistic skills over time.
+
+The Workbook becomes a continuous record of the artist's daily practice and a meaningful part of the personal artistic journey within the Sketch Atelier.
+
 Throughout the Campus, the Art Mentor is close by to provide guidance, answer questions, encourage reflection, and help artists explore new possibilities while respecting their individual creative direction.
 
 ## Color Atelier — The Exploration of Color and Emotion
