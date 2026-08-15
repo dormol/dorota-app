@@ -143,12 +143,7 @@ The ultimate purpose of artistic development is not only to create better works 
 
 ## THE CREATIVE ENVIRONMENTS OF ART MENTOR STUDIO CAMPUS
 
-
-Art Mentor Studio Campus is designed as a carefully considered collection of environments, each supporting a different stage of the artist's creative development.
-
-Each environment has its own purpose, character, and atmosphere, while contributing to the larger artistic journey.
-
-Together, they form a coherent artistic environment where artists can learn, practice, experiment, reflect, and continuously develop their own authentic artistic voice.
+The creative environments of Art Mentor Studio Campus are designed as one connected artistic experience. The Campus does not divide artistic development into isolated disciplines or separate learning rooms. Instead, the artist moves naturally between observation, drawing, painting, composition, exploration, reflection, and creation within an integrated artistic environment.
 
 ## Welcome Hall — The Beginning of the Artistic Journey
 
@@ -158,71 +153,114 @@ It introduces the philosophy of the Campus and establishes an atmosphere of insp
 
 The Welcome Hall represents the moment when an artist begins a new creative journey — a place where ideas are welcomed, personal goals are recognized, and the individual path of development begins.
 
-## Sketch Atelier — The Foundation of Observation and Expression
+## Artist Atelier — The Place of Artistic Practice
 
-The Sketch Atelier provides an environment for focused observation, exploration, and daily artistic practice, allowing artists to strengthen their skills through consistent work.
+The Artist Atelier is the central place of artistic practice within Art Mentor Studio Campus.
 
-Through sketching, artists learn to see, analyze, and understand form, proportion, movement, and composition.
+It is an integrated environment where artists observe, draw, paint, study, experiment, and develop their own artistic voice.
 
-Every drawing becomes an opportunity to observe more carefully, develop greater understanding, and strengthen the artist's ability to translate what they see into their own visual language.
+The Artist Atelier is intentionally not divided into separate Sketch, Color, Painting, or Mentor Ateliers. Drawing, painting, color exploration, composition, observation, experimentation, and reflection are understood as interconnected parts of artistic practice.
+
+The guiding principle of the Artist Atelier is:
+
+SEE → DRAW → PAINT → EXPLORE
+
+The artist may move between different forms of practice according to individual interests, experience, goals, and creative direction.
+
+## Artistic Subjects
+
+The Artist Atelier provides a broad range of subjects for artistic observation and practice.
+
+The foundational subject structure includes:
+
+1. Portrait / Face
+2. Figure
+3. Animals
+4. Flowers
+5. Landscape
+6. Everyday Objects
+7. Still Life
+8. Architecture
+9. Plants / Nature
+10. Free Subject
+
+This structure provides a broad field of artistic observation while leaving space for individual interests and subjects that may emerge from the artist's own creative direction.
+
+## Practice
+
+Practice is at the heart of the Artist Atelier.
+
+Artists learn through repeated observation, drawing, painting, experimentation, comparison, and reflection.
+
+Exercises are designed to develop observation, proportion, form, value, movement, spatial understanding, composition, artistic decision-making, and confidence.
+
+The purpose of practice is not to produce identical results. It is to help each artist understand what they see, make conscious artistic decisions, and gradually develop an individual visual language.
+
+## Composition Studies
+
+Composition is a fundamental part of artistic development and an essential area of practice within the Artist Atelier.
+
+Composition Studies allow artists to explore how visual elements are organized, balanced, emphasized, connected, and experienced within an artwork.
+
+Artists will study:
+
+- visual hierarchy
+- focal points
+- balance
+- proportion
+- scale
+- rhythm
+- movement
+- positive and negative space
+- cropping
+- placement
+- repetition
+- contrast
+- visual relationships
+
+Thumbnail Compositions provide a practical way to explore multiple compositional possibilities before developing a larger work.
+
+Composition Studies are intended to develop artistic judgment rather than prescribe one correct composition.
+
+## Mentor — Guidance, Observation, and Voice
+
+The Art Mentor is an active presence within the Artist Atelier.
+
+The Mentor observes the artist's process, asks questions, offers guidance, encourages reflection, and helps the artist recognize possibilities within their own work.
+
+The primary form of Mentor communication is spoken Mentor Voice.
+
+The Mentor does not replace the artist's decisions. Instead, the Mentor helps the artist observe more carefully, consider alternatives, understand artistic relationships, and develop independent artistic judgment.
+
+Written Mentor feedback may be available when the artist chooses to view it or requests it.
 
 ## Artist Daily Workbook — The Record of Daily Artistic Practice
 
-The Artist Daily Workbook is an integral part of the Sketch Atelier, providing artists with a personal place to record daily exercises, sketches, observations, discoveries, and reflections.
+The Artist Daily Workbook is an integral part of the Artist Atelier.
 
-It allows artists to return to previous exercises, review their development, recognize patterns in their practice, and continue building their artistic skills over time.
+It provides the artist with a personal place to record daily exercises, sketches, observations, discoveries, questions, and reflections.
 
-The Workbook becomes a continuous record of the artist's daily practice and a meaningful part of the personal artistic journey within the Sketch Atelier.
+Artists can return to previous entries, review their development, recognize patterns in their practice, and continue building their artistic skills over time.
 
-Throughout the Campus, the Art Mentor is close by to provide guidance, answer questions, encourage reflection, and help artists explore new possibilities while respecting their individual creative direction.
+The Workbook becomes a continuous record of the artist's artistic practice and development.
 
-## Color Atelier — The Exploration of Color and Emotion
+## Studio Shelf — The Personal Archive of Artistic Practice
 
-The Color Atelier is devoted to discovering the relationship between color, harmony, atmosphere, and emotional expression.
+The Studio Shelf is an integral part of the Artist Atelier.
 
-Artists explore color theory, relationships between hues, harmonies, contrasts, values, and the expressive possibilities of color.
+It provides a personal place where artists can preserve selected exercises, studies, sketches, paintings, discoveries, and important moments of artistic development.
 
-The purpose of the Color Atelier is not simply to understand color, but to help artists develop a deeper awareness of how color can influence mood, atmosphere, meaning, and personal artistic expression.
+The Studio Shelf allows artists to return to previous work, compare stages of development, recognize progress, and revisit discoveries.
 
-Throughout this exploration, the Art Mentor is available to answer questions, offer observations, and help artists discover possibilities within their own approach to color.
+The Studio Shelf and Artist Daily Workbook serve different purposes: the Workbook records the process and daily practice, while the Studio Shelf preserves selected artistic work and meaningful results.
 
-## Painting Atelier — The Atelier of Creation
+## Knowledge Resources
 
-The Painting Atelier is where knowledge, observation, imagination, and personal expression come together.
+Knowledge Resources are available to the artist from within the Artist Atelier whenever additional information or study is useful.
 
-Here, artists transform ideas into meaningful works of art while continuing to develop their techniques, artistic decisions, and creative confidence.
+They may include art history, artistic techniques, composition, materials, artistic terminology, references, and other educational resources.
 
-The Painting Atelier respects every stage of the creative process — from the first inspiration and exploration to the development and completion of the artwork.
-
-The Art Mentor remains close throughout this process, available to answer questions, offer guidance, and encourage thoughtful artistic decisions while leaving the creative direction in the hands of the artist.
-
-## Mentor Atelier — Dialogue, Reflection, and Discovery
-
-The Mentor Atelier is a place for meaningful dialogue, thoughtful reflection, and deeper exploration of the artist's creative direction.
-
-Here, artists can ask questions, discuss their work, examine their choices, and consider new perspectives with the guidance of the Art Mentor.
-
-The Mentor Atelier provides an opportunity to step back from the process of creation, reflect upon the work with greater clarity, and explore possibilities that may not have been considered before.
-
-The relationship between the artist and the Art Mentor is built on respect, trust, thoughtful exchange, and the belief that every artist has the ability to develop an authentic artistic voice.
-
-## Art Library — Knowledge and Inspiration
-
-The Art Library is a destination for learning, research, and artistic discovery.
-
-It connects artists with knowledge, art history, techniques, and sources of inspiration from different periods and cultures.
-
-The Art Library supports lifelong learning and encourages artists to remain curious, to look beyond their immediate practice, and to discover connections between artistic traditions, ideas, materials, and forms of expression.
-
-## Studio Shelf — Personal Artistic Archive
-
-The Studio Shelf is a personal archive where artists preserve their creative journey and artistic work.
-
-It allows artists to collect studies, exercises, sketches, discoveries, and important moments of development.
-
-The Studio Shelf becomes a reflection of progress — a place where artists should return throughout their creative journey to recognize their growth, revisit their discoveries, and understand the evolution of their own artistic voice.
-
-It creates a personal record of practice and development that can become increasingly meaningful as the artist's body of work grows.
+Knowledge Resources support artistic practice rather than functioning as a separate destination that interrupts the artist's creative process.
 
 ## Gallery — Sharing Artistic Expression
 
@@ -234,11 +272,8 @@ The Gallery celebrates artistic individuality and recognizes that every artist's
 
 It is also a place where artists can experience the transition from private creation to public expression and discover the meaning of presenting their work to others.
 
-The creative environments of Art Mentor Studio Campus form a unified artistic experience.
+The creative environments of Art Mentor Studio Campus form one unified artistic experience.
 
-Each has its own identity and purpose, yet none exists in isolation. The artist moves naturally between observation, practice, exploration, reflection, creation, learning, and presentation.
+The Campus provides structure without restricting individuality. The Artist Atelier is the central place of artistic practice, while the Welcome Hall and Gallery support the beginning and sharing of the artist's journey.
 
-Together, these environments create a continuous artistic journey in which knowledge becomes practice, practice becomes experience, and experience gradually becomes an increasingly confident and authentic artistic voice.
-
-The Campus is therefore not simply a collection of places. It is an environment designed to accompany the artist through the many stages of creative development, while preserving the freedom, individuality, and personal direction that make every artistic journey unique.
-
+The environment is designed to grow with the artist and to support lifelong artistic development while preserving curiosity, independence, personal expression, and artistic voice.
