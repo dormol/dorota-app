@@ -80,7 +80,7 @@ def extract_colors(img):
 
     return top_colors
 MENTOR_RULES = {
-    "horse": {
+    "animals": {
         "beginner": {
             "proportions": "Head to body approximately 1:3",
             "steps": [
@@ -88,6 +88,26 @@ MENTOR_RULES = {
                 "Add ribcage and pelvis",
                 "Connect body masses",
                 "Add legs as simple cylinders"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Study the animal through gesture, anatomy, weight, and the relationship of the major body masses.",
+            "steps": [
+                "Establish the main gesture and weight distribution",
+                "Construct the ribcage, pelvis, and major joints",
+                "Observe anatomical relationships and proportion",
+                "Develop the legs, head, and characteristic features",
+                "Refine the drawing while preserving the original gesture"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop the animal through anatomy, structure, gesture, rhythm, weight, and individual character.",
+            "steps": [
+                "Analyze the gesture, balance, and weight shift",
+                "Construct the anatomy beneath the visible surface",
+                "Study subtle proportional and structural relationships",
+                "Develop individual character, movement, and surface",
+                "Refine the drawing while maintaining convincing underlying construction"
             ]
         }
     },
@@ -288,7 +308,7 @@ def sketch():
             category = "face"
 
         elif "horse" in prompt:
-            category = "horse"
+            category = "animals"
 
         elif any(x in prompt for x in ["figure", "anatomy", "gesture"]):
             category = "figure"
