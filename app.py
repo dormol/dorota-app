@@ -129,6 +129,39 @@ MENTOR_RULES = {
         }
     },
 
+    "landscape": {
+        "beginner": {
+            "proportions": "Establish the horizon, major land masses, and depth before adding details",
+            "steps": [
+                "Observe the horizon and main direction of the landscape",
+                "Block the largest land and sky shapes",
+                "Establish foreground, middle ground, and background",
+                "Add major forms such as trees, mountains, or buildings",
+                "Refine details without losing the overall structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Use spatial relationships and atmospheric depth to organize the landscape",
+            "steps": [
+                "Analyze the horizon and perspective structure",
+                "Establish major planes and depth relationships",
+                "Organize foreground, middle ground, and background",
+                "Develop overlapping forms and atmospheric perspective",
+                "Refine the composition while preserving depth"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control complex spatial relationships, perspective, scale, and atmospheric depth",
+            "steps": [
+                "Analyze the complete spatial structure of the scene",
+                "Establish perspective, scale, and major compositional relationships",
+                "Construct complex overlapping forms",
+                "Control atmospheric perspective and visual hierarchy",
+                "Refine detail, edges, and tonal relationships in service of the composition"
+            ]
+        }
+    },
+
     "object": {
         "beginner": {
             "proportions": "Simple geometric construction: box/cylinder-based structure",
