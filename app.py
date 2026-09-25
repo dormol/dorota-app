@@ -92,26 +92,68 @@ MENTOR_RULES = {
         }
     },
 
-    "face": {
+    "portrait_face": {
         "beginner": {
-            "proportions": "Eyes placed at the middle of the head",
+            "proportions": "Use the head as the basic unit; establish the center line and eye line before features.",
             "steps": [
-                "Draw an oval",
-                "Add center line",
-                "Place eye line",
-                "Add nose and mouth"
+                "Draw the basic head shape",
+                "Establish the vertical center line",
+                "Place the eye line and major facial divisions",
+                "Construct the nose, mouth, and jaw",
+                "Refine features while preserving the whole head structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Relate facial features to the underlying skull structure and observe individual proportions.",
+            "steps": [
+                "Analyze the head planes and axis",
+                "Establish individual facial proportions",
+                "Construct the brow, nose, cheekbones, and jaw",
+                "Develop feature relationships and asymmetry",
+                "Refine form through value and edge control"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control individual anatomy, perspective, expression, and subtle proportional relationships.",
+            "steps": [
+                "Analyze the complete anatomical structure of the head",
+                "Establish perspective and individual proportions",
+                "Construct planes and turning forms",
+                "Develop expression and character",
+                "Refine subtle value, edge, and material relationships"
             ]
         }
     },
 
     "figure": {
         "beginner": {
-            "proportions": "Body approximately 7 heads tall",
+            "proportions": "Use a simple head-unit system to establish the overall figure and major body masses.",
             "steps": [
-                "Draw vertical axis",
-                "Add head unit",
-                "Place ribcage and pelvis",
-                "Add arms and legs"
+                "Draw the action line",
+                "Establish the head unit",
+                "Place the ribcage and pelvis",
+                "Connect the major body masses",
+                "Add arms and legs as simple forms"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Relate body proportions to anatomy, balance, weight, and gesture.",
+            "steps": [
+                "Analyze gesture and line of action",
+                "Construct the ribcage, pelvis, and spine",
+                "Establish weight-bearing relationships",
+                "Build limbs with anatomical landmarks",
+                "Refine the figure through overlapping forms"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control anatomy, gesture, balance, foreshortening, and individual structure.",
+            "steps": [
+                "Analyze the complete gesture and structural rhythm",
+                "Construct anatomical masses in perspective",
+                "Control balance, weight, and foreshortening",
+                "Develop anatomical landmarks and surface structure",
+                "Refine the figure while preserving gesture and character"
             ]
         }
     },
