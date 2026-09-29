@@ -477,22 +477,34 @@ def sketch():
         category = None
 
         if any(x in prompt for x in ["face", "portrait"]):
-            category = "face"
+            category = "portrait_face"
 
-        elif "horse" in prompt:
+        elif any(x in prompt for x in ["horse", "dog", "cat", "bird", "animal", "animals"]):
             category = "animals"
 
         elif any(x in prompt for x in ["figure", "anatomy", "gesture"]):
             category = "figure"
 
-        elif any(x in prompt for x in ["flower", "rose", "tulip"]):
+        elif any(x in prompt for x in ["flower", "flowers", "rose", "tulip"]):
             category = "flower"
 
-        elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object"]):
+        elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object", "objects"]):
             category = "everyday_objects"
 
-        elif any(x in prompt for x in ["landscape", "tree", "mountain"]):
+        elif any(x in prompt for x in ["landscape", "mountain"]):
             category = "landscape"
+
+        elif any(x in prompt for x in ["still life", "still-life", "stilllife"]):
+            category = "still_life"
+
+        elif any(x in prompt for x in ["architecture", "building", "house"]):
+            category = "architecture"
+
+        elif any(x in prompt for x in ["plants", "plant", "nature", "leaf", "leaves", "botanical"]):
+            category = "plants_nature"
+
+        elif any(x in prompt for x in ["free subject", "free", "anything"]):
+            category = "free_subject"
 
         if category:
             feedback = MENTOR_RULES[category].get(
