@@ -80,6 +80,39 @@ def extract_colors(img):
 
     return top_colors
 MENTOR_RULES = {
+    "plants_nature": {
+        "beginner": {
+            "proportions": "Observe simple plants and natural forms through basic shapes, proportion, placement, and the relationship between stems, leaves, and larger masses.",
+            "steps": [
+                "Choose a simple plant, leaf, or natural form",
+                "Observe the overall shape and proportions",
+                "Block the main stem and largest forms",
+                "Add leaves or secondary shapes while observing their direction and spacing",
+                "Refine the forms while preserving the natural structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop plant and nature studies through organic proportion, overlapping forms, directional growth, rhythm, and the relationship between individual elements and the whole.",
+            "steps": [
+                "Establish the main growth direction and larger natural masses",
+                "Develop overlapping leaves, branches, or organic forms",
+                "Observe rhythm and variation rather than repeating identical shapes",
+                "Use light and shadow to clarify depth within the natural forms",
+                "Refine details while maintaining the unity and movement of the whole"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex studies of plants and nature through organic structure, hierarchy, rhythm, spatial depth, light, atmosphere, and expressive observation.",
+            "steps": [
+                "Analyze the underlying structure and growth pattern of the natural subject",
+                "Organize complex overlapping forms with clear spatial hierarchy",
+                "Develop rhythm, variation, and directional movement throughout the composition",
+                "Use value, light, atmosphere, and selective detail to create depth",
+                "Refine the drawing while preserving the character and expressive unity of the natural forms"
+            ]
+        },
+    },
+
     "architecture": {
         "beginner": {
             "proportions": "Build simple architectural forms by observing proportion, horizon line, perspective direction, and the relationships between major structural elements.",
@@ -109,6 +142,26 @@ MENTOR_RULES = {
                 "Develop rhythm through repeated structural elements",
                 "Use value, light, and material differences to describe architectural surfaces",
                 "Refine the drawing while preserving spatial depth, structural clarity, and compositional intention"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop plant and nature studies through organic proportion, overlapping forms, directional growth, rhythm, and the relationship between individual elements and the whole.",
+            "steps": [
+                "Establish the main growth direction and larger natural masses",
+                "Develop overlapping leaves, branches, or organic forms",
+                "Observe rhythm and variation rather than repeating identical shapes",
+                "Use light and shadow to clarify depth within the natural forms",
+                "Refine details while maintaining the unity and movement of the whole"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex studies of plants and nature through organic structure, hierarchy, rhythm, spatial depth, light, atmosphere, and expressive observation.",
+            "steps": [
+                "Analyze the underlying structure and growth pattern of the natural subject",
+                "Organize complex overlapping forms with clear spatial hierarchy",
+                "Develop rhythm, variation, and directional movement throughout the composition",
+                "Use value, light, atmosphere, and selective detail to create depth",
+                "Refine the drawing while preserving the character and expressive unity of the natural forms"
             ]
         },
     },
