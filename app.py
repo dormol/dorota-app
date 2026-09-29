@@ -244,6 +244,39 @@ MENTOR_RULES = {
         }
     },
 
+    "still_life": {
+        "beginner": {
+            "proportions": "Arrange simple objects by observing their basic shapes, relative size, placement, and overlap.",
+            "steps": [
+                "Choose two or three simple objects",
+                "Observe the overall arrangement and proportions",
+                "Block the largest shapes",
+                "Establish overlaps and placement",
+                "Refine the silhouettes while preserving the whole arrangement"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop the still life through proportion, perspective, spatial relationships, overlap, and tonal structure.",
+            "steps": [
+                "Analyze the relationships between all objects",
+                "Establish accurate proportions and perspective",
+                "Develop overlaps and negative spaces",
+                "Organize the major light and shadow masses",
+                "Refine individual objects without losing the unity of the arrangement"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop a convincing still life through composition, proportion, perspective, value, material, light, and spatial depth.",
+            "steps": [
+                "Analyze the composition and visual hierarchy",
+                "Establish precise spatial and proportional relationships",
+                "Develop perspective, overlap, and negative space",
+                "Observe material differences through value, edge, and texture",
+                "Refine the entire arrangement while maintaining compositional unity"
+            ]
+        }
+    },
+
     "everyday_objects": {
         "beginner": {
             "proportions": "Simple geometric construction: box/cylinder-based structure",
