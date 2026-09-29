@@ -188,6 +188,26 @@ MENTOR_RULES = {
                 "Refine overlaps",
                 "Add leaves"
             ]
+        },
+        "intermediate": {
+            "proportions": "Study the flower through botanical structure, rhythm, overlapping petals, and the relationship between flower, stem, and leaves.",
+            "steps": [
+                "Observe the underlying structure of the flower",
+                "Establish the stem and major directional rhythms",
+                "Construct overlapping petals and their perspective",
+                "Relate the flower to its leaves and supporting forms",
+                "Refine details while preserving the overall structure"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop the flower through botanical structure, spatial depth, rhythm, proportion, light, and individual character.",
+            "steps": [
+                "Analyze the botanical structure and growth pattern",
+                "Establish spatial depth and overlapping forms",
+                "Develop subtle variations in petal shape and rhythm",
+                "Observe light, value, texture, and surface",
+                "Refine the drawing while preserving the living character of the plant"
+            ]
         }
     },
 
