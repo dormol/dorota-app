@@ -80,6 +80,39 @@ def extract_colors(img):
 
     return top_colors
 MENTOR_RULES = {
+    "architecture": {
+        "beginner": {
+            "proportions": "Build simple architectural forms by observing proportion, horizon line, perspective direction, and the relationships between major structural elements.",
+            "steps": [
+                "Choose a simple building or architectural structure",
+                "Establish the horizon line and main perspective direction",
+                "Block the largest structural shapes",
+                "Check the proportions of walls, openings, and major forms",
+                "Add doors and windows while preserving the overall structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop architectural studies through perspective, structural relationships, depth, repeated elements, and the balance between major forms and details.",
+            "steps": [
+                "Establish one- or two-point perspective",
+                "Block the main architectural masses and their spatial relationships",
+                "Develop repeated elements such as windows, columns, or roof forms",
+                "Use light and shadow to clarify depth and structure",
+                "Refine details without losing the strength of the overall construction"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex architectural studies through precise spatial construction, proportion, perspective, rhythm, hierarchy, material, value, and atmospheric depth.",
+            "steps": [
+                "Establish a complex spatial construction and perspective framework",
+                "Organize major architectural forms according to proportion and hierarchy",
+                "Develop rhythm through repeated structural elements",
+                "Use value, light, and material differences to describe architectural surfaces",
+                "Refine the drawing while preserving spatial depth, structural clarity, and compositional intention"
+            ]
+        },
+    },
+
     "animals": {
         "beginner": {
             "proportions": "Head to body approximately 1:3",
