@@ -80,6 +80,39 @@ def extract_colors(img):
 
     return top_colors
 MENTOR_RULES = {
+    "free_subject": {
+        "beginner": {
+            "proportions": "Use a subject of your own choice while applying careful observation, basic proportion, placement, shape, and overall composition.",
+            "steps": [
+                "Choose any subject that interests you",
+                "Observe the subject before beginning to draw",
+                "Identify the largest shapes and their proportions",
+                "Place the main forms clearly on the page",
+                "Refine the drawing while preserving your own artistic direction"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop a self-chosen subject through stronger observation, proportion, composition, spatial relationships, and intentional use of visual structure.",
+            "steps": [
+                "Choose a subject that offers meaningful artistic possibilities",
+                "Analyze its major shapes, proportions, and spatial relationships",
+                "Organize the composition with attention to placement and balance",
+                "Develop depth through overlap, value, and directional relationships",
+                "Refine the subject while making deliberate artistic choices"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop an independently chosen subject through sophisticated observation, composition, structure, hierarchy, visual language, and personal artistic intention.",
+            "steps": [
+                "Choose a subject that supports a clear personal artistic intention",
+                "Analyze its structure, proportions, spatial relationships, and visual hierarchy",
+                "Construct the composition with deliberate control of focal points, balance, and movement",
+                "Use value, rhythm, contrast, and selective detail to strengthen the visual language",
+                "Refine the work while preserving individuality, coherence, and the artist\u0027s developing voice"
+            ]
+        },
+    },
+
     "plants_nature": {
         "beginner": {
             "proportions": "Observe simple plants and natural forms through basic shapes, proportion, placement, and the relationship between stems, leaves, and larger masses.",
