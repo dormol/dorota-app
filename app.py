@@ -244,7 +244,7 @@ MENTOR_RULES = {
         }
     },
 
-    "object": {
+    "everyday_objects": {
         "beginner": {
             "proportions": "Simple geometric construction: box/cylinder-based structure",
             "steps": [
@@ -337,7 +337,7 @@ def sketch():
             category = "flower"
 
         elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object"]):
-            category = "object"
+            category = "everyday_objects"
 
         elif any(x in prompt for x in ["landscape", "tree", "mountain"]):
             category = "landscape"
