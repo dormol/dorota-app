@@ -529,7 +529,7 @@ def sketch():
         feedback_html = """
         <p>
         Enter a classical drawing subject such as:
-        face, figure, flower, horse, object, or landscape.
+        Portrait / Face, Figure, Animals, Flowers, Landscape, Everyday Objects, Still Life, Architecture, Plants / Nature, or Free Subject.
         </p>
         """
 
