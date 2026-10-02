@@ -491,7 +491,7 @@ def sketch():
         elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object", "objects"]):
             category = "everyday_objects"
 
-        elif any(x in prompt for x in ["landscape", "mountain"]):
+        elif any(x in prompt for x in ["landscape", "mountain", "tree", "trees"]):
             category = "landscape"
 
         elif any(x in prompt for x in ["still life", "still-life", "stilllife"]):
