@@ -275,7 +275,47 @@ MENTOR_RULES = {
                     "If you notice a proportional difference, make a small correction now. You do not need to begin again.",
                     "Before refining details, step back and look at the whole structure. Ask yourself what relationship you would change and why.",
                     "You do not need to get everything right on the first attempt. Use what you see in your drawing to learn more about what you are observing."
+                ],
+            "exercise_3_4": {
+                "title": "Portrait / Face —– Understanding the Head in 3/4 View",
+                "goal": "Learn to observe and construct the human head in 3/4 view, focusing on the rotation of the head, the central axis, changing facial proportions, and the relationship between the near and far sides of the face.",
+                "see": "Look at the reference before making the first mark. Notice how the head turns in space and how this changes the visible width of each side of the face. Observe the central axis, the eye line, the nose, cheek, and jaw as parts of one turning structure.",
+                "observe": [
+                    "Overall shape and tilt of the head",
+                    "Direction of the central axis",
+                    "Eye line in perspective",
+                    "Different visible widths of the near and far sides of the face",
+                    "Visible width of the eyes and mouth on each side of the central axis",
+                    "The farther brow, eye, and mouth may appear shorter or narrower as the head turns",
+                    "Position and projection of the nose",
+                    "Relationship between cheek, jaw, and chin",
+                    "How facial features follow the turning form"
+                ],
+                "draw": [
+                    "Draw the overall head shape and indicate its tilt",
+                    "Establish the central axis following the turn of the head",
+                    "Establish the eye line in relation to the perspective",
+                    "Indicate the near and far sides of the face",
+                    "Observe and construct the changing visible width of the eyes and mouth on the near and far sides of the central axis",
+                    "Construct the nose, cheek, mouth, jaw, and chin within the turning structure",
+                    "Check the spatial relationships before refining individual features"
+                ],
+                "explore": "Step back and compare the drawing with the reference. Notice whether the head feels turned in space or whether it has begun to flatten into a front view. Make small corrections to the axis, proportions, and placement before adding detail.",
+                "reflect": [
+                    "What did I notice about the way the head turns in space?",
+                    "Which relationship between the near and far sides was most difficult?",
+                    "What would I like to observe more carefully in my next 3/4 view?"
+                ],
+                "mentor_voice": [
+                    "Before you begin, look at the head as a turning form rather than as a collection of features.",
+                    "Notice how much of the far side of the face remains visible. This relationship can tell you a great deal about the degree of the turn.",
+                    "Pay attention to the details on both sides of the central axis. Notice how the farther brow, eye, and mouth may appear shorter or narrower as the head turns. Observe the reference carefully rather than making both sides equal.",
+                    "Check the central axis as the head turns. If the axis is misplaced, the features may begin to drift even when they are individually well drawn.",
+                    "If the drawing starts to look too frontal, pause and compare the visible width of the near and far sides with the reference.",
+                    "Look at the nose, cheek, and jaw as forms that turn together with the head. Small adjustments here can strengthen the sense of space.",
+                    "You do not need to correct everything at once. Choose the relationship that matters most to you and observe what changes when you adjust it."
                 ]
+            },
             }
         },
         "intermediate": {
