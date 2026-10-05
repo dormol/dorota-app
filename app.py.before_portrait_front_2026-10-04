@@ -240,43 +240,7 @@ MENTOR_RULES = {
                 "Place the eye line and major facial divisions",
                 "Construct the nose, mouth, and jaw",
                 "Refine features while preserving the whole head structure"
-            ],
-            "exercise": {
-                "title": "Portrait / Face — Understanding the Basic Structure of the Head",
-                "goal": "Learn to observe and construct the basic structure of a human head in front view, focusing on overall shape, proportion, central axis, and the placement of the major facial divisions before developing individual features.",
-                "see": "Look at the reference carefully before making the first mark. Observe the overall shape of the head, its width and height, the direction of the central axis, and the relationship between the major areas of the face. Do not begin with the eyes, nose, or mouth. First understand the whole.",
-                "observe": [
-                    "Overall shape of the head",
-                    "Height and width",
-                    "Vertical central axis",
-                    "Eye line",
-                    "Basic facial divisions",
-                    "Relationship between the upper, middle, and lower parts of the head",
-                    "Symmetry and natural differences between the left and right sides"
-                ],
-                "draw": [
-                    "Draw the basic outer shape of the head",
-                    "Establish the vertical central axis",
-                    "Establish the eye line",
-                    "Indicate the major facial divisions",
-                    "Place the nose, mouth, and jaw within the established structure",
-                    "Check the relationships between the parts before refining details"
-                ],
-                "explore": "Step back from the drawing and compare the whole structure with the reference. Ask yourself what you see differently now than when you began. Make small corrections to proportion and placement rather than immediately adding detail.",
-                "reflect": [
-                    "What did I notice about the structure of the head?",
-                    "What was most difficult for me?",
-                    "What would I like to observe more carefully next time?"
-                ],
-                "mentor_voice": [
-                    "Before you begin, look at the whole head. Do not search for the eyes, nose, or mouth yet. First notice the overall shape and proportions.",
-                    "Look at the width and height of the head. Does their relationship correspond to what you see in the reference?",
-                    "Check the central axis before adding details. See how its position affects the placement of the other features.",
-                    "If you notice a proportional difference, make a small correction now. You do not need to begin again.",
-                    "Before refining details, step back and look at the whole structure. Ask yourself what relationship you would change and why.",
-                    "You do not need to get everything right on the first attempt. Use what you see in your drawing to learn more about what you are observing."
-                ]
-            }
+            ]
         },
         "intermediate": {
             "proportions": "Relate facial features to the underlying skull structure and observe individual proportions.",
@@ -560,38 +524,6 @@ def sketch():
             feedback_html += f"<li>{step}</li>"
 
         feedback_html += "</ol>"
-
-        exercise = feedback.get("exercise")
-
-        if exercise:
-            feedback_html += f"<h2>{exercise['title']}</h2>"
-            feedback_html += f"<h3>Goal</h3><p>{exercise['goal']}</p>"
-
-            feedback_html += "<h3>SEE — Before You Draw</h3>"
-            feedback_html += f"<p>{exercise['see']}</p>"
-
-            feedback_html += "<h3>OBSERVE — Find the Structure</h3><ul>"
-            for item in exercise["observe"]:
-                feedback_html += f"<li>{item}</li>"
-            feedback_html += "</ul>"
-
-            feedback_html += "<h3>DRAW — Build the Head</h3><ol>"
-            for step in exercise["draw"]:
-                feedback_html += f"<li>{step}</li>"
-            feedback_html += "</ol>"
-
-            feedback_html += "<h3>EXPLORE — Look Again</h3>"
-            feedback_html += f"<p>{exercise['explore']}</p>"
-
-            feedback_html += "<h3>REFLECT — Your Artistic Observation</h3><ol>"
-            for question in exercise["reflect"]:
-                feedback_html += f"<li>{question}</li>"
-            feedback_html += "</ol>"
-
-            feedback_html += "<h3>MENTOR VOICE</h3><ul>"
-            for message in exercise["mentor_voice"]:
-                feedback_html += f"<li>{message}</li>"
-            feedback_html += "</ul>"
 
     else:
         feedback_html = """
