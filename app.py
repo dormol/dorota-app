@@ -275,7 +275,8 @@ MENTOR_RULES = {
                     "If you notice a proportional difference, make a small correction now. You do not need to begin again.",
                     "Before refining details, step back and look at the whole structure. Ask yourself what relationship you would change and why.",
                     "You do not need to get everything right on the first attempt. Use what you see in your drawing to learn more about what you are observing."
-                ],
+                ]
+            },
             "exercise_3_4": {
                 "title": "Portrait / Face —– Understanding the Head in 3/4 View",
                 "goal": "Learn to observe and construct the human head in 3/4 view, focusing on the rotation of the head, the central axis, changing facial proportions, and the relationship between the near and far sides of the face.",
@@ -315,7 +316,6 @@ MENTOR_RULES = {
                     "Look at the nose, cheek, and jaw as forms that turn together with the head. Small adjustments here can strengthen the sense of space.",
                     "You do not need to correct everything at once. Choose the relationship that matters most to you and observe what changes when you adjust it."
                 ]
-            },
             }
         },
         "intermediate": {
