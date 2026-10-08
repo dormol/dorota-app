@@ -1,0 +1,771 @@
+
+
+from flask import Flask, request, render_template_string, session
+from PIL import Image
+
+from core.session_manager import init_session, set_module, get_state
+import io
+
+app = Flask(__name__)
+
+@app.before_request
+def start_session():
+    init_session()
+app.secret_key = "art-mentor-dev-key"
+HTML = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Generator</title>
+</head>
+<body>
+    <h1>Upload an image to extract colors</h1>
+    <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit" value="Upload Image">
+    </form>
+    
+    {% if colors %}
+  
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        {% for c in colors %}
+            <div style="
+                width:60px;
+                height:60px;
+                background-color:{{ c }};
+                border-radius:8px;
+                border:1px solid #333;
+                box-shadow:0 2px 6px rgba(0,0,0,0.2);
+            "></div>
+        {% endfor %}
+    </div>
+
+
+{% endif %}    
+    {% if note %}
+        <h3>Note:</h3>
+        <p>{{ note }}</p>
+    {% endif %}
+</body>
+</html>
+"""
+
+
+def extract_colors(img):
+    img = img.convert("RGB")
+    img = img.resize((150, 150))
+
+    pixels = list(img.getdata())
+
+    color_count = {}
+
+    for pixel in pixels:
+        if pixel in color_count:
+            color_count[pixel] += 1
+        else:
+            color_count[pixel] = 1
+
+    sorted_colors = sorted(
+        color_count.items(),
+        key=lambda x: x[1],
+        reverse=True
+    )
+
+    top_colors = []
+
+    for color, count in sorted_colors[:12]:
+        hex_color = '#%02x%02x%02x' % color
+        top_colors.append(hex_color)
+
+    return top_colors
+MENTOR_RULES = {
+    "free_subject": {
+        "beginner": {
+            "proportions": "Use a subject of your own choice while applying careful observation, basic proportion, placement, shape, and overall composition.",
+            "steps": [
+                "Choose any subject that interests you",
+                "Observe the subject before beginning to draw",
+                "Identify the largest shapes and their proportions",
+                "Place the main forms clearly on the page",
+                "Refine the drawing while preserving your own artistic direction"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop a self-chosen subject through stronger observation, proportion, composition, spatial relationships, and intentional use of visual structure.",
+            "steps": [
+                "Choose a subject that offers meaningful artistic possibilities",
+                "Analyze its major shapes, proportions, and spatial relationships",
+                "Organize the composition with attention to placement and balance",
+                "Develop depth through overlap, value, and directional relationships",
+                "Refine the subject while making deliberate artistic choices"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop an independently chosen subject through sophisticated observation, composition, structure, hierarchy, visual language, and personal artistic intention.",
+            "steps": [
+                "Choose a subject that supports a clear personal artistic intention",
+                "Analyze its structure, proportions, spatial relationships, and visual hierarchy",
+                "Construct the composition with deliberate control of focal points, balance, and movement",
+                "Use value, rhythm, contrast, and selective detail to strengthen the visual language",
+                "Refine the work while preserving individuality, coherence, and the artist\u0027s developing voice"
+            ]
+        },
+    },
+
+    "plants_nature": {
+        "beginner": {
+            "proportions": "Observe simple plants and natural forms through basic shapes, proportion, placement, and the relationship between stems, leaves, and larger masses.",
+            "steps": [
+                "Choose a simple plant, leaf, or natural form",
+                "Observe the overall shape and proportions",
+                "Block the main stem and largest forms",
+                "Add leaves or secondary shapes while observing their direction and spacing",
+                "Refine the forms while preserving the natural structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop plant and nature studies through organic proportion, overlapping forms, directional growth, rhythm, and the relationship between individual elements and the whole.",
+            "steps": [
+                "Establish the main growth direction and larger natural masses",
+                "Develop overlapping leaves, branches, or organic forms",
+                "Observe rhythm and variation rather than repeating identical shapes",
+                "Use light and shadow to clarify depth within the natural forms",
+                "Refine details while maintaining the unity and movement of the whole"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex studies of plants and nature through organic structure, hierarchy, rhythm, spatial depth, light, atmosphere, and expressive observation.",
+            "steps": [
+                "Analyze the underlying structure and growth pattern of the natural subject",
+                "Organize complex overlapping forms with clear spatial hierarchy",
+                "Develop rhythm, variation, and directional movement throughout the composition",
+                "Use value, light, atmosphere, and selective detail to create depth",
+                "Refine the drawing while preserving the character and expressive unity of the natural forms"
+            ]
+        },
+    },
+
+    "architecture": {
+        "beginner": {
+            "proportions": "Build simple architectural forms by observing proportion, horizon line, perspective direction, and the relationships between major structural elements.",
+            "steps": [
+                "Choose a simple building or architectural structure",
+                "Establish the horizon line and main perspective direction",
+                "Block the largest structural shapes",
+                "Check the proportions of walls, openings, and major forms",
+                "Add doors and windows while preserving the overall structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop architectural studies through perspective, structural relationships, depth, repeated elements, and the balance between major forms and details.",
+            "steps": [
+                "Establish one- or two-point perspective",
+                "Block the main architectural masses and their spatial relationships",
+                "Develop repeated elements such as windows, columns, or roof forms",
+                "Use light and shadow to clarify depth and structure",
+                "Refine details without losing the strength of the overall construction"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex architectural studies through precise spatial construction, proportion, perspective, rhythm, hierarchy, material, value, and atmospheric depth.",
+            "steps": [
+                "Establish a complex spatial construction and perspective framework",
+                "Organize major architectural forms according to proportion and hierarchy",
+                "Develop rhythm through repeated structural elements",
+                "Use value, light, and material differences to describe architectural surfaces",
+                "Refine the drawing while preserving spatial depth, structural clarity, and compositional intention"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop plant and nature studies through organic proportion, overlapping forms, directional growth, rhythm, and the relationship between individual elements and the whole.",
+            "steps": [
+                "Establish the main growth direction and larger natural masses",
+                "Develop overlapping leaves, branches, or organic forms",
+                "Observe rhythm and variation rather than repeating identical shapes",
+                "Use light and shadow to clarify depth within the natural forms",
+                "Refine details while maintaining the unity and movement of the whole"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop complex studies of plants and nature through organic structure, hierarchy, rhythm, spatial depth, light, atmosphere, and expressive observation.",
+            "steps": [
+                "Analyze the underlying structure and growth pattern of the natural subject",
+                "Organize complex overlapping forms with clear spatial hierarchy",
+                "Develop rhythm, variation, and directional movement throughout the composition",
+                "Use value, light, atmosphere, and selective detail to create depth",
+                "Refine the drawing while preserving the character and expressive unity of the natural forms"
+            ]
+        },
+    },
+
+    "animals": {
+        "beginner": {
+            "proportions": "Head to body approximately 1:3",
+            "steps": [
+                "Draw the action line",
+                "Add ribcage and pelvis",
+                "Connect body masses",
+                "Add legs as simple cylinders"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Study the animal through gesture, anatomy, weight, and the relationship of the major body masses.",
+            "steps": [
+                "Establish the main gesture and weight distribution",
+                "Construct the ribcage, pelvis, and major joints",
+                "Observe anatomical relationships and proportion",
+                "Develop the legs, head, and characteristic features",
+                "Refine the drawing while preserving the original gesture"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop the animal through anatomy, structure, gesture, rhythm, weight, and individual character.",
+            "steps": [
+                "Analyze the gesture, balance, and weight shift",
+                "Construct the anatomy beneath the visible surface",
+                "Study subtle proportional and structural relationships",
+                "Develop individual character, movement, and surface",
+                "Refine the drawing while maintaining convincing underlying construction"
+            ]
+        }
+    },
+
+    "portrait_face": {
+        "beginner": {
+            "proportions": "Use the head as the basic unit; establish the center line and eye line before features.",
+            "steps": [
+                "Draw the basic head shape",
+                "Establish the vertical center line",
+                "Place the eye line and major facial divisions",
+                "Construct the nose, mouth, and jaw",
+                "Refine features while preserving the whole head structure"
+            ],
+            "exercise": {
+                "title": "Portrait / Face — Understanding the Basic Structure of the Head",
+                "goal": "Learn to observe and construct the basic structure of a human head in front view, focusing on overall shape, proportion, central axis, and the placement of the major facial divisions before developing individual features.",
+                "see": "Look at the reference carefully before making the first mark. Observe the overall shape of the head, its width and height, the direction of the central axis, and the relationship between the major areas of the face. Do not begin with the eyes, nose, or mouth. First understand the whole.",
+                "observe": [
+                    "Overall shape of the head",
+                    "Height and width",
+                    "Vertical central axis",
+                    "Eye line",
+                    "Basic facial divisions",
+                    "Relationship between the upper, middle, and lower parts of the head",
+                    "Symmetry and natural differences between the left and right sides"
+                ],
+                "draw": [
+                    "Draw the basic outer shape of the head",
+                    "Establish the vertical central axis",
+                    "Establish the eye line",
+                    "Indicate the major facial divisions",
+                    "Place the nose, mouth, and jaw within the established structure",
+                    "Check the relationships between the parts before refining details"
+                ],
+                "explore": "Step back from the drawing and compare the whole structure with the reference. Ask yourself what you see differently now than when you began. Make small corrections to proportion and placement rather than immediately adding detail.",
+                "reflect": [
+                    "What did I notice about the structure of the head?",
+                    "What was most difficult for me?",
+                    "What would I like to observe more carefully next time?"
+                ],
+                "mentor_voice": [
+                    "Before you begin, look at the whole head. Do not search for the eyes, nose, or mouth yet. First notice the overall shape and proportions.",
+                    "Look at the width and height of the head. Does their relationship correspond to what you see in the reference?",
+                    "Check the central axis before adding details. See how its position affects the placement of the other features.",
+                    "If you notice a proportional difference, make a small correction now. You do not need to begin again.",
+                    "Before refining details, step back and look at the whole structure. Ask yourself what relationship you would change and why.",
+                    "You do not need to get everything right on the first attempt. Use what you see in your drawing to learn more about what you are observing."
+                ],
+            "exercise_3_4": {
+                "title": "Portrait / Face —– Understanding the Head in 3/4 View",
+                "goal": "Learn to observe and construct the human head in 3/4 view, focusing on the rotation of the head, the central axis, changing facial proportions, and the relationship between the near and far sides of the face.",
+                "see": "Look at the reference before making the first mark. Notice how the head turns in space and how this changes the visible width of each side of the face. Observe the central axis, the eye line, the nose, cheek, and jaw as parts of one turning structure.",
+                "observe": [
+                    "Overall shape and tilt of the head",
+                    "Direction of the central axis",
+                    "Eye line in perspective",
+                    "Different visible widths of the near and far sides of the face",
+                    "Visible width of the eyes and mouth on each side of the central axis",
+                    "The farther brow, eye, and mouth may appear shorter or narrower as the head turns",
+                    "Position and projection of the nose",
+                    "Relationship between cheek, jaw, and chin",
+                    "How facial features follow the turning form"
+                ],
+                "draw": [
+                    "Draw the overall head shape and indicate its tilt",
+                    "Establish the central axis following the turn of the head",
+                    "Establish the eye line in relation to the perspective",
+                    "Indicate the near and far sides of the face",
+                    "Observe and construct the changing visible width of the eyes and mouth on the near and far sides of the central axis",
+                    "Construct the nose, cheek, mouth, jaw, and chin within the turning structure",
+                    "Check the spatial relationships before refining individual features"
+                ],
+                "explore": "Step back and compare the drawing with the reference. Notice whether the head feels turned in space or whether it has begun to flatten into a front view. Make small corrections to the axis, proportions, and placement before adding detail.",
+                "reflect": [
+                    "What did I notice about the way the head turns in space?",
+                    "Which relationship between the near and far sides was most difficult?",
+                    "What would I like to observe more carefully in my next 3/4 view?"
+                ],
+                "mentor_voice": [
+                    "Before you begin, look at the head as a turning form rather than as a collection of features.",
+                    "Notice how much of the far side of the face remains visible. This relationship can tell you a great deal about the degree of the turn.",
+                    "Pay attention to the details on both sides of the central axis. Notice how the farther brow, eye, and mouth may appear shorter or narrower as the head turns. Observe the reference carefully rather than making both sides equal.",
+                    "Check the central axis as the head turns. If the axis is misplaced, the features may begin to drift even when they are individually well drawn.",
+                    "If the drawing starts to look too frontal, pause and compare the visible width of the near and far sides with the reference.",
+                    "Look at the nose, cheek, and jaw as forms that turn together with the head. Small adjustments here can strengthen the sense of space.",
+                    "You do not need to correct everything at once. Choose the relationship that matters most to you and observe what changes when you adjust it."
+                ]
+            },
+            }
+        },
+        "intermediate": {
+            "proportions": "Relate facial features to the underlying skull structure and observe individual proportions.",
+            "steps": [
+                "Analyze the head planes and axis",
+                "Establish individual facial proportions",
+                "Construct the brow, nose, cheekbones, and jaw",
+                "Develop feature relationships and asymmetry",
+                "Refine form through value and edge control"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control individual anatomy, perspective, expression, and subtle proportional relationships.",
+            "steps": [
+                "Analyze the complete anatomical structure of the head",
+                "Establish perspective and individual proportions",
+                "Construct planes and turning forms",
+                "Develop expression and character",
+                "Refine subtle value, edge, and material relationships"
+            ]
+        }
+    },
+
+    "figure": {
+        "beginner": {
+            "proportions": "Use a simple head-unit system to establish the overall figure and major body masses.",
+            "steps": [
+                "Draw the action line",
+                "Establish the head unit",
+                "Place the ribcage and pelvis",
+                "Connect the major body masses",
+                "Add arms and legs as simple forms"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Relate body proportions to anatomy, balance, weight, and gesture.",
+            "steps": [
+                "Analyze gesture and line of action",
+                "Construct the ribcage, pelvis, and spine",
+                "Establish weight-bearing relationships",
+                "Build limbs with anatomical landmarks",
+                "Refine the figure through overlapping forms"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control anatomy, gesture, balance, foreshortening, and individual structure.",
+            "steps": [
+                "Analyze the complete gesture and structural rhythm",
+                "Construct anatomical masses in perspective",
+                "Control balance, weight, and foreshortening",
+                "Develop anatomical landmarks and surface structure",
+                "Refine the figure while preserving gesture and character"
+            ]
+        }
+    },
+
+    "flower": {
+        "beginner": {
+            "proportions": "Flowers structured around radial symmetry",
+            "steps": [
+                "Draw central stem line",
+                "Block basic flower shape",
+                "Divide into petals",
+                "Refine overlaps",
+                "Add leaves"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Study the flower through botanical structure, rhythm, overlapping petals, and the relationship between flower, stem, and leaves.",
+            "steps": [
+                "Observe the underlying structure of the flower",
+                "Establish the stem and major directional rhythms",
+                "Construct overlapping petals and their perspective",
+                "Relate the flower to its leaves and supporting forms",
+                "Refine details while preserving the overall structure"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop the flower through botanical structure, spatial depth, rhythm, proportion, light, and individual character.",
+            "steps": [
+                "Analyze the botanical structure and growth pattern",
+                "Establish spatial depth and overlapping forms",
+                "Develop subtle variations in petal shape and rhythm",
+                "Observe light, value, texture, and surface",
+                "Refine the drawing while preserving the living character of the plant"
+            ]
+        }
+    },
+
+    "landscape": {
+        "beginner": {
+            "proportions": "Establish the horizon, major land masses, and depth before adding details",
+            "steps": [
+                "Observe the horizon and main direction of the landscape",
+                "Block the largest land and sky shapes",
+                "Establish foreground, middle ground, and background",
+                "Add major forms such as trees, mountains, or buildings",
+                "Refine details without losing the overall structure"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Use spatial relationships and atmospheric depth to organize the landscape",
+            "steps": [
+                "Analyze the horizon and perspective structure",
+                "Establish major planes and depth relationships",
+                "Organize foreground, middle ground, and background",
+                "Develop overlapping forms and atmospheric perspective",
+                "Refine the composition while preserving depth"
+            ]
+        },
+        "advanced": {
+            "proportions": "Control complex spatial relationships, perspective, scale, and atmospheric depth",
+            "steps": [
+                "Analyze the complete spatial structure of the scene",
+                "Establish perspective, scale, and major compositional relationships",
+                "Construct complex overlapping forms",
+                "Control atmospheric perspective and visual hierarchy",
+                "Refine detail, edges, and tonal relationships in service of the composition"
+            ]
+        }
+    },
+
+    "still_life": {
+        "beginner": {
+            "proportions": "Arrange simple objects by observing their basic shapes, relative size, placement, and overlap.",
+            "steps": [
+                "Choose two or three simple objects",
+                "Observe the overall arrangement and proportions",
+                "Block the largest shapes",
+                "Establish overlaps and placement",
+                "Refine the silhouettes while preserving the whole arrangement"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Develop the still life through proportion, perspective, spatial relationships, overlap, and tonal structure.",
+            "steps": [
+                "Analyze the relationships between all objects",
+                "Establish accurate proportions and perspective",
+                "Develop overlaps and negative spaces",
+                "Organize the major light and shadow masses",
+                "Refine individual objects without losing the unity of the arrangement"
+            ]
+        },
+        "advanced": {
+            "proportions": "Develop a convincing still life through composition, proportion, perspective, value, material, light, and spatial depth.",
+            "steps": [
+                "Analyze the composition and visual hierarchy",
+                "Establish precise spatial and proportional relationships",
+                "Develop perspective, overlap, and negative space",
+                "Observe material differences through value, edge, and texture",
+                "Refine the entire arrangement while maintaining compositional unity"
+            ]
+        }
+    },
+
+    "everyday_objects": {
+        "beginner": {
+            "proportions": "Simple geometric construction: box/cylinder-based structure",
+            "steps": [
+                "Block basic form",
+                "Construct perspective box",
+                "Define proportions",
+                "Refine silhouette"
+            ]
+        },
+        "intermediate": {
+            "proportions": "Add spatial depth and structural accuracy",
+            "steps": [
+                "Establish perspective lines",
+                "Build 3D form",
+                "Refine overlaps"
+            ]
+        },
+        "advanced": {
+            "proportions": "Full structural and perspective control",
+            "steps": [
+                "Analyze real object proportions",
+                "Apply multi-point perspective",
+                "Refine material and edge control"
+            ]
+        }
+    }
+}
+def art_note():
+    return "This is an automatic art note."
+@app.route("/warmup", methods=["GET"])
+def warmup():
+    return """
+    <h1>Art Mentor — Module 1: Warm-Up Engine</h1>
+
+    <p>15-minute focus session</p>
+
+    <button onclick="startWarmup()">Start Warm-Up</button>
+
+    <h2 id="timer">15:00</h2>
+
+    <script>
+        let duration = 15 * 60;
+        let interval;
+
+        function startWarmup() {
+            if (interval) return;
+
+            interval = setInterval(() => {
+                let minutes = Math.floor(duration / 60);
+                let seconds = duration % 60;
+
+                document.getElementById("timer").innerText =
+                    String(minutes).padStart(2,'0') + ":" + String(seconds).padStart(2,'0');
+
+                duration--;
+
+                if (duration < 0) {
+                    clearInterval(interval);
+                    document.getElementById("timer").innerText = "DONE";
+                }
+            }, 1000);
+        }
+    </script>
+    """
+
+@app.route("/sketch", methods=["GET", "POST"])
+def sketch():
+
+    feedback = None
+    prompt = ""
+    level = "beginner"
+
+    if request.method == "POST":
+
+        level = request.form.get("level", "Beginner").lower()
+        prompt = request.form.get("prompt", "").lower()
+
+        category = None
+
+        if any(x in prompt for x in ["face", "portrait"]):
+            category = "portrait_face"
+
+        elif any(x in prompt for x in ["horse", "dog", "cat", "bird", "animal", "animals"]):
+            category = "animals"
+
+        elif any(x in prompt for x in ["figure", "anatomy", "gesture"]):
+            category = "figure"
+
+        elif any(x in prompt for x in ["flower", "flowers", "rose", "tulip"]):
+            category = "flower"
+
+        elif any(x in prompt for x in ["cup", "chair", "table", "phone", "object", "objects"]):
+            category = "everyday_objects"
+
+        elif any(x in prompt for x in ["landscape", "mountain", "tree", "trees"]):
+            category = "landscape"
+
+        elif any(x in prompt for x in ["still life", "still-life", "stilllife"]):
+            category = "still_life"
+
+        elif any(x in prompt for x in ["architecture", "building", "house"]):
+            category = "architecture"
+
+        elif any(x in prompt for x in ["plants", "plant", "nature", "leaf", "leaves", "botanical"]):
+            category = "plants_nature"
+
+        elif any(x in prompt for x in ["free subject", "free", "anything"]):
+            category = "free_subject"
+
+        if category:
+            feedback = MENTOR_RULES[category].get(
+                level,
+                MENTOR_RULES[category]["beginner"]
+            )
+
+    feedback_html = ""
+
+    if feedback:
+        feedback_html += "<h3>Proportions</h3>"
+        feedback_html += f"<p>{feedback['proportions']}</p>"
+
+        feedback_html += "<h3>Construction Steps</h3><ol>"
+
+        for step in feedback["steps"]:
+            feedback_html += f"<li>{step}</li>"
+
+        feedback_html += "</ol>"
+
+        exercise = feedback.get("exercise")
+
+        if exercise:
+            feedback_html += f"<h2>{exercise['title']}</h2>"
+            feedback_html += f"<h3>Goal</h3><p>{exercise['goal']}</p>"
+
+            feedback_html += "<h3>SEE — Before You Draw</h3>"
+            feedback_html += f"<p>{exercise['see']}</p>"
+
+            feedback_html += "<h3>OBSERVE — Find the Structure</h3><ul>"
+            for item in exercise["observe"]:
+                feedback_html += f"<li>{item}</li>"
+            feedback_html += "</ul>"
+
+            feedback_html += "<h3>DRAW — Build the Head</h3><ol>"
+            for step in exercise["draw"]:
+                feedback_html += f"<li>{step}</li>"
+            feedback_html += "</ol>"
+
+            feedback_html += "<h3>EXPLORE — Look Again</h3>"
+            feedback_html += f"<p>{exercise['explore']}</p>"
+
+            feedback_html += "<h3>REFLECT — Your Artistic Observation</h3><ol>"
+            for question in exercise["reflect"]:
+                feedback_html += f"<li>{question}</li>"
+            feedback_html += "</ol>"
+
+            feedback_html += "<h3>MENTOR VOICE</h3><ul>"
+            for message in exercise["mentor_voice"]:
+                feedback_html += f"<li>{message}</li>"
+            feedback_html += "</ul>"
+
+    else:
+        feedback_html = """
+        <p>
+        Enter a classical drawing subject such as:
+        Portrait / Face, Figure, Animals, Flowers, Landscape, Everyday Objects, Still Life, Architecture, Plants / Nature, or Free Subject.
+        </p>
+        """
+
+    return f"""
+    <h1>Art Mentor — Sketch Engine v2</h1>
+
+    <form method="POST">
+
+        <h2>Select Level</h2>
+
+        <input type="radio" name="level" value="Beginner" checked> Beginner<br>
+        <input type="radio" name="level" value="Intermediate"> Intermediate<br>
+        <input type="radio" name="level" value="Advanced"> Advanced<br>
+
+        <h2>What would you like to draw?</h2>
+
+        <input type="text" name="prompt" style="width:320px;">
+
+        <br><br>
+
+        <button type="submit">Generate Mentor Guidance</button>
+
+    </form>
+
+    <hr>
+
+    <h2>Mentor Guidance</h2>
+
+    {feedback_html}
+    """
+
+        
+    
+@app.route("/", methods=["GET", "POST"])
+def home():
+    colors = None
+    note = art_note()
+
+    
+    if request.method == "POST":
+        print("FILES:", request.files)
+        print("FORM:", request.form)
+        file = request.files.get("image")
+        
+        if file is None or file.filename == "":
+            return "No file uploaded", 400
+
+        img = Image.open(file)
+        colors = extract_colors(img)
+
+    return render_template_string(HTML, colors=colors, note=note)
+@app.route("/app", methods=["GET", "POST"])
+def app_controller():
+
+    if "module" not in session:
+        session["module"] = 1
+        session["level"] = "Beginner"
+
+    action = request.args.get("go")
+
+    if action:
+        session["module"] = int(action)
+
+    module = session["module"]
+
+    if module == 1:
+        return warmup()
+
+    elif module == 2:
+        return sketch()
+
+    elif module == 3:
+        return render_template_string("<h1>Module 3 - Composition</h1>")
+
+    elif module == 4:
+        return render_template_string("<h1>Module 4 - Color Studio</h1>")
+
+    elif module == 5:
+        return render_template_string("<h1>Module 5 - Medium Studio</h1>")
+
+    elif module == 6:
+        return render_template_string("<h1>Module 6 - Painting Session</h1>")
+
+    elif module == 7:
+        return render_template_string("<h1>Module 7 - Mentor Review</h1>")
+
+    else:
+        session["module"] = 1
+        return warmup()
+
+
+
+
+    
+@app.route("/app/module/<name>")
+def module_router(name):
+
+    set_module(name)
+
+    state = get_state()
+
+    return f"""
+    <h1>Art Mentor Studio</h1>
+
+    <h2>Module: {name}</h2>
+
+    <p>User Level: {state.get('user_level')}</p>
+
+    <p>Progress:</p>
+
+    <pre>{state.get('progress')}</pre>
+
+    <hr>
+
+    <a href="/app/module/warmup">Warm-Up</a><br>
+
+    <a href="/app/module/sketch">Sketch Engine</a><br>
+
+    <a href="/app/module/color">Color Studio</a><br>
+
+    <a href="/app/module/review">Mentor Review</a><br>
+    """
+if __name__ == "__main__":
+    app.run(debug=True)
+
+    
+
+
+
+
+
