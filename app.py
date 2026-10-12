@@ -1,10 +1,12 @@
 
 
+import html
 from flask import Flask, request, render_template_string, session
 from PIL import Image
 
 from core.session_manager import init_session, set_module, get_state
 import io
+from copy import deepcopy
 
 app = Flask(__name__)
 
@@ -575,7 +577,88 @@ MENTOR_RULES = {
             ]
         }
     }
+
 }
+
+# Portrait / Face: complete exercises for Intermediate and Advanced.
+# Existing Beginner exercises remain unchanged.
+_portrait_views = {
+    "exercise": "front",
+    "exercise_3_4": "three-quarter",
+    "exercise_profile": "profile",
+    "exercise_comparative": "comparative",
+}
+
+_portrait_level_guidance = {
+    "intermediate": {
+        "label": "Intermediate",
+        "goal": "Analyze structural planes, individual proportions, and perspective rather than relying on general construction formulas.",
+        "see": "Compare the reference with your construction. Identify the structural relationship that most affects likeness and spatial clarity.",
+        "observe": [
+            "Transitions between major planes and turning forms",
+            "Individual proportions, asymmetry, and perspective-dependent changes"
+        ],
+        "draw": [
+            "Check the structural planes against the reference before refining features",
+            "Revise the largest proportional or perspective discrepancy first"
+        ],
+        "explore": "Compare the drawing at a distance and close up. Keep the strongest structural relationships while correcting the most consequential discrepancy.",
+        "reflect": "Which structural decision had the greatest effect on likeness and depth?",
+        "voice": [
+            "Look for the relationship behind the error rather than correcting an isolated feature.",
+            "Make one deliberate structural adjustment, then compare the whole drawing again."
+        ],
+    },
+    "advanced": {
+        "label": "Advanced",
+        "goal": "Resolve anatomy, perspective, character, and subtle structural relationships through deliberate visual analysis.",
+        "see": "Assess the reference as a connected three-dimensional form. Separate observed evidence from assumptions and identify the most consequential structural relationships.",
+        "observe": [
+            "Subtle plane transitions, anatomical landmarks, and perspective compression",
+            "How structure, asymmetry, expression, and edge relationships contribute to character"
+        ],
+        "draw": [
+            "Test the construction against anatomical landmarks and the observed perspective",
+            "Refine value and edge hierarchy without weakening the underlying structure"
+        ],
+        "explore": "Evaluate the drawing at multiple viewing distances. Determine whether each refinement strengthens form and character or merely adds detail.",
+        "reflect": "Which decisions were supported by observation, and which were assumptions?",
+        "voice": [
+            "Prioritize the structural evidence that explains the form; avoid polishing an uncertain construction.",
+            "Judge every refinement by its effect on the whole, not by detail alone."
+        ],
+    },
+}
+
+for _level, _guidance in _portrait_level_guidance.items():
+    _target = MENTOR_RULES["portrait_face"][_level]
+    _base = MENTOR_RULES["portrait_face"]["beginner"]
+    for _key, _view in _portrait_views.items():
+        _exercise = deepcopy(_base[_key] if _key in _base else _base["exercise"])
+        _exercise["title"] = _exercise["title"] + " — " + _guidance["label"]
+        _exercise["goal"] += " " + _guidance["goal"]
+        _exercise["see"] += " " + _guidance["see"]
+        _exercise["observe"].extend(_guidance["observe"])
+        _exercise["draw"].extend(_guidance["draw"])
+        _exercise["explore"] += " " + _guidance["explore"]
+        _exercise["reflect"].append(_guidance["reflect"])
+        _exercise["mentor_voice"].extend(_guidance["voice"])
+
+        if _view == "three-quarter":
+            _exercise["observe"].append(
+                "Compare perspective compression and the visible near and far sides."
+            )
+        elif _view == "profile":
+            _exercise["observe"].append(
+                "Evaluate the silhouette and the projection of the facial structure."
+            )
+        elif _view == "comparative":
+            _exercise["observe"].append(
+                "Separate consistent anatomical relationships from changes caused by viewpoint."
+            )
+
+        _target[_key] = _exercise
+
 def art_note():
     return "This is an automatic art note."
 @app.route("/warmup", methods=["GET"])
@@ -619,13 +702,15 @@ def sketch():
 
     feedback = None
     prompt = ""
+    prompt_display = ""
     level = "beginner"
     view = "front"
 
     if request.method == "POST":
 
         level = request.form.get("level", "Beginner").lower()
-        prompt = request.form.get("prompt", "").lower()
+        prompt_display = request.form.get("prompt", "")
+        prompt = prompt_display.lower()
         view = request.form.get("view", "front")
 
         category = None
@@ -732,13 +817,13 @@ def sketch():
 
         <h2>Select Level</h2>
 
-        <input type="radio" name="level" value="Beginner" checked> Beginner<br>
-        <input type="radio" name="level" value="Intermediate"> Intermediate<br>
-        <input type="radio" name="level" value="Advanced"> Advanced<br>
+        <input type="radio" name="level" value="Beginner" {"checked" if level == "beginner" else ""}> Beginner<br>
+        <input type="radio" name="level" value="Intermediate" {"checked" if level == "intermediate" else ""}> Intermediate<br>
+        <input type="radio" name="level" value="Advanced" {"checked" if level == "advanced" else ""}> Advanced<br>
 
         <h2>What would you like to draw?</h2>
 
-        <input type="text" name="prompt" style="width:320px;">
+        <input type="text" name="prompt" value="{html.escape(prompt_display, quote=True)}" style="width:320px;">
 
         <h2>Portrait View (for Portrait / Face)</h2>
         <input type="radio" name="view" value="front" {"checked" if view == "front" else ""}> Front View<br>
