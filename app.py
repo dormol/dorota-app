@@ -355,6 +355,43 @@ MENTOR_RULES = {
                     "If the profile does not resemble the reference, return to the outer contour and check the proportions before changing the details.",
                     "Work gently and make small corrections. Each observation helps you understand the structure more clearly."
                 ]
+            },
+            "exercise_comparative": {
+                "title": "Portrait / Face — Comparative Study: Front, 3/4, and Profile",
+                "goal": "Learn to compare the same human head from three viewpoints and recognize how rotation changes the silhouette, central axis, visible facial features, and apparent proportions.",
+                "see": "Place the front, 3/4, and profile references side by side if available. Before drawing, look for what remains consistent and what changes as the head turns. Compare the overall height and width, the contour, the direction of the axis, and the visibility of the facial features.",
+                "observe": [
+                    "Overall height and width of the head in each view",
+                    "How the outer silhouette changes from front to profile",
+                    "The central axis in the front and 3/4 views",
+                    "How much of each side of the face is visible in the 3/4 view",
+                    "How the nose, lips, chin, and forehead define the profile",
+                    "How the ear and jaw relate to the cranium in each view",
+                    "Which proportions remain consistent and which appear to change because of perspective"
+                ],
+                "draw": [
+                    "Divide the page into three spaces and label them Front, 3/4, and Profile",
+                    "Draw the overall head shape in each space before adding features",
+                    "Establish the central axis and eye line where visible",
+                    "Construct the major facial divisions in each view",
+                    "Compare the position of the nose, mouth, chin, and ear across the three drawings",
+                    "Check each silhouette against its reference before refining details"
+                ],
+                "explore": "Place the three drawings side by side. Identify one structural relationship that changes with the turn and one that remains consistent. Correct the largest differences first, then compare the silhouettes and feature placement again.",
+                "reflect": [
+                    "Which difference between the three views did I notice first?",
+                    "Which view was most difficult to construct, and why?",
+                    "What helped me understand the head as a three-dimensional form?",
+                    "What would I observe more carefully in a future comparative study?"
+                ],
+                "mentor_voice": [
+                    "Begin by comparing the whole shapes, not the individual features.",
+                    "Notice how the silhouette changes as the head turns. The profile reveals depth that is less apparent in the front view.",
+                    "In the 3/4 view, compare the visible widths of the near and far sides. Follow the reference rather than forcing symmetry.",
+                    "Look at the nose, mouth, chin, and ear as parts of one connected structure.",
+                    "Compare the three drawings before correcting details. Find the most important structural difference first.",
+                    "The purpose is not to make three identical drawings. It is to understand how one head is seen from three different directions."
+                ]
             }
         },
         "intermediate": {
@@ -647,6 +684,8 @@ def sketch():
             exercise = feedback.get("exercise_3_4", exercise)
         if any(x in prompt for x in ["face", "portrait"]) and view == "profile":
             exercise = feedback.get("exercise_profile", exercise)
+        if any(x in prompt for x in ["face", "portrait"]) and view == "comparative":
+            exercise = feedback.get("exercise_comparative", exercise)
 
         if exercise:
             feedback_html += f"<h2>{exercise['title']}</h2>"
@@ -705,6 +744,7 @@ def sketch():
         <input type="radio" name="view" value="front" {"checked" if view == "front" else ""}> Front View<br>
         <input type="radio" name="view" value="three_quarter" {"checked" if view == "three_quarter" else ""}> 3/4 View<br>
         <input type="radio" name="view" value="profile" {"checked" if view == "profile" else ""}> Profile View<br>
+        <input type="radio" name="view" value="comparative" {"checked" if view == "comparative" else ""}> Comparative Study<br>
 
         <br><br>
 
