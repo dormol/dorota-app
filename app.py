@@ -544,11 +544,13 @@ def sketch():
     feedback = None
     prompt = ""
     level = "beginner"
+    view = "front"
 
     if request.method == "POST":
 
         level = request.form.get("level", "Beginner").lower()
         prompt = request.form.get("prompt", "").lower()
+        view = request.form.get("view", "front")
 
         category = None
 
@@ -602,6 +604,8 @@ def sketch():
         feedback_html += "</ol>"
 
         exercise = feedback.get("exercise")
+        if any(x in prompt for x in ["face", "portrait"]) and view == "three_quarter":
+            exercise = feedback.get("exercise_3_4", exercise)
 
         if exercise:
             feedback_html += f"<h2>{exercise['title']}</h2>"
@@ -655,6 +659,10 @@ def sketch():
         <h2>What would you like to draw?</h2>
 
         <input type="text" name="prompt" style="width:320px;">
+
+        <h2>Portrait View (for Portrait / Face)</h2>
+        <input type="radio" name="view" value="front" {"checked" if view == "front" else ""}> Front View<br>
+        <input type="radio" name="view" value="three_quarter" {"checked" if view == "three_quarter" else ""}> 3/4 View<br>
 
         <br><br>
 
