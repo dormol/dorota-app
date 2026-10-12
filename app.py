@@ -316,6 +316,45 @@ MENTOR_RULES = {
                     "Look at the nose, cheek, and jaw as forms that turn together with the head. Small adjustments here can strengthen the sense of space.",
                     "You do not need to correct everything at once. Choose the relationship that matters most to you and observe what changes when you adjust it."
                 ]
+            },
+            "exercise_profile": {
+                "title": "Portrait / Face — Understanding the Head in Profile View",
+                "goal": "Learn to observe and construct the human head in profile, focusing on the silhouette, the relationship between the cranium and facial structure, and the placement of the forehead, nose, lips, chin, jaw, and ear.",
+                "see": "Before drawing, study the complete side silhouette. Observe how the forehead transitions into the nose, how the lips relate to the chin, and how the jaw connects the face to the cranium. Begin with the whole contour rather than individual features.",
+                "observe": [
+                    "Overall height and depth of the head",
+                    "Silhouette of the forehead, nose, lips, and chin",
+                    "Shape and volume of the cranium",
+                    "Transition from the forehead to the bridge and tip of the nose",
+                    "Relationship between the lips, chin, and jaw",
+                    "Position of the ear in relation to the eye line, nose, and jaw",
+                    "Connection between the cranium and facial structure",
+                    "Tilt and direction of the head"
+                ],
+                "draw": [
+                    "Draw the overall silhouette of the head lightly",
+                    "Establish the direction and tilt of the head",
+                    "Separate the cranium from the projecting facial structure",
+                    "Construct the forehead, nose, lips, chin, and jaw as connected forms",
+                    "Place the ear in relation to the eye line and the base of the nose",
+                    "Check the contour and proportions before adding internal details",
+                    "Refine the profile while preserving the overall shape"
+                ],
+                "explore": "Step back and compare the entire silhouette with the reference. Check whether the forehead, nose, lips, chin, and cranium form the same overall rhythm. Correct the contour and relationships before refining small details.",
+                "reflect": [
+                    "Which part of the profile silhouette was easiest to recognize?",
+                    "Which relationship between the nose, lips, chin, and forehead was most difficult to observe?",
+                    "How did studying the silhouette change the way I understood the head?",
+                    "What would I like to observe more carefully in my next profile drawing?"
+                ],
+                "mentor_voice": [
+                    "Begin with the silhouette. Let your eye travel from the forehead to the nose, lips, chin, and jaw before you draw any details.",
+                    "Notice the difference between the volume of the cranium and the projecting forms of the face.",
+                    "Observe the nose and chin in relation to one another. Their alignment is individual, so follow the reference rather than a formula.",
+                    "Look carefully at the ear. Observe its position in relation to the eye line, the nose, and the jaw.",
+                    "If the profile does not resemble the reference, return to the outer contour and check the proportions before changing the details.",
+                    "Work gently and make small corrections. Each observation helps you understand the structure more clearly."
+                ]
             }
         },
         "intermediate": {
@@ -606,6 +645,8 @@ def sketch():
         exercise = feedback.get("exercise")
         if any(x in prompt for x in ["face", "portrait"]) and view == "three_quarter":
             exercise = feedback.get("exercise_3_4", exercise)
+        if any(x in prompt for x in ["face", "portrait"]) and view == "profile":
+            exercise = feedback.get("exercise_profile", exercise)
 
         if exercise:
             feedback_html += f"<h2>{exercise['title']}</h2>"
@@ -663,6 +704,7 @@ def sketch():
         <h2>Portrait View (for Portrait / Face)</h2>
         <input type="radio" name="view" value="front" {"checked" if view == "front" else ""}> Front View<br>
         <input type="radio" name="view" value="three_quarter" {"checked" if view == "three_quarter" else ""}> 3/4 View<br>
+        <input type="radio" name="view" value="profile" {"checked" if view == "profile" else ""}> Profile View<br>
 
         <br><br>
 
