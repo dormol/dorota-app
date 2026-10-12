@@ -873,8 +873,13 @@ def app_controller():
 
     action = request.args.get("go")
 
-    if action:
-        session["module"] = int(action)
+    if action is not None:
+        try:
+            requested_module = int(action)
+        except (TypeError, ValueError):
+            requested_module = 1
+
+        session["module"] = requested_module if 1 <= requested_module <= 7 else 1
 
     module = session["module"]
 
