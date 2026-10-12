@@ -298,3 +298,16 @@ The creative environments of Art Mentor Studio Campus form one unified artistic 
 The Campus provides structure without restricting individuality. The Artist Atelier is the central place of artistic practice, while the Welcome Hall and Gallery support the beginning and sharing of the artist's journey.
 
 The environment is designed to grow with the artist and to support lifelong artistic development while preserving curiosity, independence, personal expression, and artistic voice.
+
+---
+
+# ARTISTIC TECHNIQUES AND VISUAL LANGUAGE
+
+These visual directions preserve a distinctive approach to expressive painting and mixed-media work. They serve as references for artistic exploration, not rigid rules. Each artist remains free to develop an individual visual voice.
+
+- **Emotional structure:** Create tension between softness and fragmentation.
+- **Paint behavior:** Explore layered transparency to suggest depth associated with acrylic painting.
+- **Drawing layer:** Allow charcoal sketch lines to remain subtly visible beneath the paint.
+- **Collage logic:** Use broken forms, partial visibility, and a sense of reconstruction.
+
+These principles may guide artistic exercises, visual references, and future art-learning materials within Art Mentor Studio.

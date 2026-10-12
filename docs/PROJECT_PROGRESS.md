@@ -35,6 +35,26 @@ This document records confirmed development milestones, tests, GitHub checkpoint
 4. Review local files not tracked by Git before deciding whether any are important project assets that should be preserved in the repository.
 5. Review the nested `voice_ai_app` application and its assets separately before changing or reorganizing them.
 
+## 10/12/26 — Artistic Techniques and Repository Preservation
+
+### Work completed
+- Reviewed the untracked local file `app_backup.py`.
+- Identified four unique artistic directions not found elsewhere in the reviewed project files: emotional structure through softness and fragmentation; layered transparency; charcoal sketch lines beneath paint; and collage through broken forms, partial visibility, and reconstruction.
+- Preserved these ideas in `docs/DESIGN_BIBLE.md` under **ARTISTIC TECHNIQUES AND VISUAL LANGUAGE**.
+- Kept the damaged local backup out of the active application code. Its unique artistic notes were preserved separately rather than treating the file as a working program.
+- Reviewed the nested Voice AI application's saved copies and audio assets. Confirmed that one nested MP3 matches a file in historical commit `b3dd73b`; the current tracked audio and the nested historical audio are different files.
+- No temporary editor files, compiled Python artifacts, or virtual-environment files were added as project source.
+
+### Verification and remaining work
+- `git diff --check`: passed for the Design Bible change.
+- The new Design Bible section was reviewed in the displayed Git diff.
+- This checkpoint records a documentation and file-preservation review; it does not certify that every local file has been reviewed or that all application modules are fully tested.
+- Continue reviewing untracked files and decide whether any additional unique, useful content should be preserved.
+
+### Files changed in this checkpoint
+- `docs/DESIGN_BIBLE.md`
+- `docs/PROJECT_PROGRESS.md`
+
 ## Repository Preservation Policy
 
 - Preserve important project decisions, documentation, source code, and meaningful recovery copies in GitHub.
