@@ -572,44 +572,49 @@ _portrait_views = {
 _portrait_level_guidance = {
     "intermediate": {
         "label": "Intermediate",
-        "goal": "Analyze structural planes, individual proportions, and perspective rather than relying on general construction formulas.",
-        "see": "Compare the reference with your construction. Identify the structural relationship that most affects likeness and spatial clarity.",
+        "goal": "Analyze the head as a construction of connected planes and individual proportions. Use the reference to identify, test, and correct the structural relationship that most affects likeness and spatial clarity.",
+        "see": "Compare your construction with the reference. Locate the largest discrepancy in proportion, plane direction, or perspective, and explain how it affects the whole head.",
         "observe": [
-            "Transitions between major planes and turning forms",
-            "Individual proportions, asymmetry, and perspective-dependent changes"
+            "Transitions between major planes and the turning of forms",
+            "Individual proportions, asymmetry, and perspective-dependent changes",
+            "The relationship between the central axis, feature placement, and the direction of the head"
         ],
         "draw": [
-            "Check the structural planes against the reference before refining features",
-            "Revise the largest proportional or perspective discrepancy first"
+            "Check the major structural planes and landmarks against the reference before refining features",
+            "Correct the most consequential proportional or perspective discrepancy first",
+            "Compare the revised construction with the reference before making another adjustment"
         ],
-        "explore": "Compare the drawing at a distance and close up. Keep the strongest structural relationships while correcting the most consequential discrepancy.",
-        "reflect": "Which structural decision had the greatest effect on likeness and depth?",
+        "explore": "Compare the drawing from a distance and close up. Make one purposeful correction at a time, preserving the strongest structural relationships while improving the least accurate ones.",
+        "reflect": "Which structural discrepancy did you identify, what evidence helped you recognize it, and how did correcting it improve the drawing?",
         "voice": [
-            "Look for the relationship behind the error rather than correcting an isolated feature.",
-            "Make one deliberate structural adjustment, then compare the whole drawing again."
+            "Look for the structural relationship behind the error rather than correcting an isolated feature.",
+            "Choose the most important discrepancy, correct it deliberately, and compare the whole drawing again.",
+            "Do not refine details until the main proportions and plane directions are convincing."
         ],
     },
     "advanced": {
         "label": "Advanced",
-        "goal": "Resolve anatomy, perspective, character, and subtle structural relationships through deliberate visual analysis.",
-        "see": "Assess the reference as a connected three-dimensional form. Separate observed evidence from assumptions and identify the most consequential structural relationships.",
+        "goal": "Independently diagnose complex relationships between anatomy, perspective, asymmetry, expression, and character. Form a structural hypothesis, test it against visual evidence, and prioritize corrections according to their effect on the whole portrait.",
+        "see": "Study the reference as a connected three-dimensional form. Identify where your construction departs from the observed anatomy or perspective, distinguish evidence from assumption, and justify which correction should come first.",
         "observe": [
             "Subtle plane transitions, anatomical landmarks, and perspective compression",
-            "How structure, asymmetry, expression, and edge relationships contribute to character"
+            "How asymmetry, expression, and edge relationships contribute to individual character",
+            "Whether apparent proportional errors result from anatomy, head rotation, perspective, or an unsupported construction assumption"
         ],
         "draw": [
-            "Test the construction against anatomical landmarks and the observed perspective",
-            "Refine value and edge hierarchy without weakening the underlying structure"
+            "Form a hypothesis about the main structural problem and test it against multiple visible landmarks",
+            "Revise the construction while preserving the observed asymmetry and perspective of the reference",
+            "Establish a deliberate hierarchy of structural, value, and edge corrections instead of polishing details indiscriminately"
         ],
-        "explore": "Evaluate the drawing at multiple viewing distances. Determine whether each refinement strengthens form and character or merely adds detail.",
-        "reflect": "Which decisions were supported by observation, and which were assumptions?",
+        "explore": "Evaluate the portrait at multiple viewing distances. Compare the initial and revised construction, assess whether the correction strengthens volume and character, and reject refinements that add detail without improving the whole.",
+        "reflect": "What was your structural diagnosis, which visual evidence supported it, and why was your chosen correction more important than the alternatives?",
         "voice": [
-            "Prioritize the structural evidence that explains the form; avoid polishing an uncertain construction.",
-            "Judge every refinement by its effect on the whole, not by detail alone."
+            "State your hypothesis before correcting the drawing, then test it against the anatomy and perspective you can actually observe.",
+            "Prioritize the correction with the greatest effect on the whole portrait, and be prepared to explain why.",
+            "Distinguish a convincing structural refinement from detail that merely makes the drawing look more finished."
         ],
     },
 }
-
 for _level, _guidance in _portrait_level_guidance.items():
     _target = MENTOR_RULES["portrait_face"][_level]
     _base = MENTOR_RULES["portrait_face"]["beginner"]
